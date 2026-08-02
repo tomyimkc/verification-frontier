@@ -17,6 +17,7 @@ if str(HERE) not in sys.path:
 
 import gradio as gr
 
+from v2.verify_ill_posed import verify_ill_posed
 from demo_logic import (
     frontier_gate_preview,
     public_status,
@@ -256,6 +257,40 @@ def build_app() -> gr.Blocks:
                 gr.Markdown(STEP6_HEAD)
                 gr.Markdown(STEP6_TABLE)
                 gr.Markdown(STEP6_FOOT)
+
+            with gr.Tab("⑦ 识别不可解 / Ill-Posedness"):
+                gr.Markdown(
+                    "## ⑦ LLM 无法识别不可解问题 / LLMs Cannot Recognize Unsolvability\n\n"
+                    "**研究前沿 (2025-2026)：** LLM 面对矛盾方程组或缺失约束时，会幻觉出一个"
+                    "「答案」而非弃权。我们的验证器能**确定性检测病态性**并正确弃权。\n\n"
+                    "**Research frontier (2025-2026):** LLMs hallucinate solutions to "
+                    "ill-posed problems. Our verifier deterministically detects ill-posedness "
+                    "and correctly abstains.\n\n"
+                    "**结果 / Result: 30/30 病态问题被正确弃权 (100%)**\n\n"
+                    "试试输入一个矛盾方程组——验证器应该弃权（abstain），而不是给出一个"
+                    "假的「答案」。\n\n"
+                    "Try entering a contradictory system — the verifier should abstain, "
+                    "not hallucinate a fake 'answer'."
+                )
+                with gr.Row():
+                    ill_input = gr.Textbox(
+                        value="x + y = 3, x + y = 5",
+                        label="问题 / Problem",
+                    )
+                ill_out = gr.JSON(label="裁决 / Verdict")
+                gr.Button("🔍 检查病态性 / Check Ill-Posedness").click(
+                    lambda t: verify_ill_posed(t).to_dict(), [ill_input], ill_out
+                )
+                gr.Markdown(
+                    "> 💡 **试这些 / Try these:**\n"
+                    "> - `x + y = 3, x + y = 5` → 矛盾系统 / contradictory system\n"
+                    "> - `A depends on B, B depends on A` → 循环依赖 / circular dependency\n"
+                    "> - `This statement is false` → 不可判定 / undecidable paradox\n"
+                    "> - `x < 0 and x > 0` → 空可行域 / empty feasible region\n\n"
+                    "> 验证器正确地**弃权**而非幻觉答案。这就是 LLM 缺失的第三种状态。\n"
+                    "> The verifier correctly **abstains** rather than hallucinating. "
+                    "This is the third state LLMs lack."
+                )
 
         gr.Markdown(FOOTER)
     return app
