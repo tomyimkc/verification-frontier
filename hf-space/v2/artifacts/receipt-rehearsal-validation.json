@@ -1,0 +1,148 @@
+{
+  "blobCount": 60,
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "chainCount": 3,
+  "errors": [],
+  "receiptCount": 34,
+  "reports": [
+    {
+      "canClaimAGI": false,
+      "candidateOnly": true,
+      "chainSha256": "ae2c497ba08cdc65369f1928f7ae86bea1bb9d182563e03639a11caea0abd79f",
+      "domain": "physics",
+      "errors": [],
+      "evidenceClass": "development-only",
+      "extensionClass": "physics.development-extension",
+      "extensionId": "development.physics.family:extension",
+      "generatorFamily": "development.physics.family",
+      "protectedSuiteReceiptSha256": "45913df6178988b266b3c62ca3d0804c06c1390d38b9c0b2d8e1f2b04c088080",
+      "receiptCount": 11,
+      "reviewDecisionSha256s": [
+        "99443bf0748ee77497203da1c4ca7244e96041ed6c35a7167adc0e60a44724c8",
+        "e47f772b6d5ea4ab3645b3998b746ccf19bcd5a5a57e9632cb2e492ba6c984c5"
+      ],
+      "schema": "goai-frontier-receipt-validation/v1",
+      "status": "PASS",
+      "taskManifestSha256": "919745403ce4d4d871ca8fa088fab0f68f1fb91687de9b43db5397494051970e",
+      "transferExecutionBindings": [
+        {
+          "executionReceiptSha256": "64b9fdded844e070507a1aeda4a9fe4eb9f481eae73a54853b054d9d1238dc03",
+          "pairId": "development.physics.family:transfer-a:pair",
+          "safetyTaskId": "development.physics.family:transfer-a:safety",
+          "taskId": "development.physics.family:transfer-a"
+        },
+        {
+          "executionReceiptSha256": "de643b546e270dfb078b2c626e689be304730cfe8ce0a1ed5735185d1122144f",
+          "pairId": "development.physics.family:transfer-b:pair",
+          "safetyTaskId": "development.physics.family:transfer-b:safety",
+          "taskId": "development.physics.family:transfer-b"
+        }
+      ],
+      "transferExecutionReceiptSha256s": [
+        "64b9fdded844e070507a1aeda4a9fe4eb9f481eae73a54853b054d9d1238dc03",
+        "de643b546e270dfb078b2c626e689be304730cfe8ce0a1ed5735185d1122144f"
+      ],
+      "transferExecutionReceiptsValidated": true,
+      "transferTaskIds": [
+        "development.physics.family:transfer-a",
+        "development.physics.family:transfer-b"
+      ],
+      "transferTaskManifestSha256": "35e38240b02b5aa5d569b22bd1ba82aa59c4c20117502afdbcb3cfdbe086db5b",
+      "triggerTaskId": "development.physics.family:development-trigger"
+    },
+    {
+      "canClaimAGI": false,
+      "candidateOnly": true,
+      "chainSha256": "20023da07cd174bc33f95895e8f5f23d6e5d2576dbcce5b33d98c6d5ad56d4d7",
+      "domain": "symbolic",
+      "errors": [],
+      "evidenceClass": "development-only",
+      "extensionClass": "symbolic.development-extension",
+      "extensionId": "development.symbolic.family:extension",
+      "generatorFamily": "development.symbolic.family",
+      "protectedSuiteReceiptSha256": "5c7211c260946b2b225b9ce21a12366ff1e6efeb1188912995bdb21f734a70d0",
+      "receiptCount": 11,
+      "reviewDecisionSha256s": [
+        "ecb89258ab6b34dfcbb1917413b101c8cd58366a81eaa6021b2982fe66cf82db",
+        "f9492d94b32696ffe2bd916c4903aecc57e1261bf57090d6469834d01466e236"
+      ],
+      "schema": "goai-frontier-receipt-validation/v1",
+      "status": "PASS",
+      "taskManifestSha256": "da6f1509e7e3a9ac8ad7d735e8b8d7d7a319b612dacb597d90251ca74623111d",
+      "transferExecutionBindings": [
+        {
+          "executionReceiptSha256": "d14c28bf757b541eb3bc368cd1de238857e22793f9f7371dad0b9ee1ed58cd2c",
+          "pairId": "development.symbolic.family:transfer-a:pair",
+          "safetyTaskId": "development.symbolic.family:transfer-a:safety",
+          "taskId": "development.symbolic.family:transfer-a"
+        },
+        {
+          "executionReceiptSha256": "15b9594a576c152fe37e20194768d5db4e7dc4eb765d22cb00d00f2de1f141ba",
+          "pairId": "development.symbolic.family:transfer-b:pair",
+          "safetyTaskId": "development.symbolic.family:transfer-b:safety",
+          "taskId": "development.symbolic.family:transfer-b"
+        }
+      ],
+      "transferExecutionReceiptSha256s": [
+        "15b9594a576c152fe37e20194768d5db4e7dc4eb765d22cb00d00f2de1f141ba",
+        "d14c28bf757b541eb3bc368cd1de238857e22793f9f7371dad0b9ee1ed58cd2c"
+      ],
+      "transferExecutionReceiptsValidated": true,
+      "transferTaskIds": [
+        "development.symbolic.family:transfer-a",
+        "development.symbolic.family:transfer-b"
+      ],
+      "transferTaskManifestSha256": "d754c89e9e30ec65b5794f5ea389d7b802e2a6077e00def8dcbee48d09247c05",
+      "triggerTaskId": "development.symbolic.family:development-trigger"
+    },
+    {
+      "canClaimAGI": false,
+      "candidateOnly": true,
+      "chainSha256": "91bcaa7e25732991dfbd8a5e17b829ee0e9b4a676787015533ca82141584ba06",
+      "domain": "lean",
+      "errors": [],
+      "evidenceClass": "development-only",
+      "extensionClass": "lean.development-extension",
+      "extensionId": "development.lean.family:extension",
+      "generatorFamily": "development.lean.family",
+      "protectedSuiteReceiptSha256": "2c650fcc8fce116481a8fb6756c2b666cb814bcbd16aa6edfaad24557a719eac",
+      "receiptCount": 12,
+      "reviewDecisionSha256s": [
+        "9632e2a3d56c4b5fa21fc197365d2541f2ca2a66cc6c7c2d799a8247530d5d12",
+        "a965ea9e62ad865894761d0f3f1d689f879cc88bed098c7ae99cd8315f1ce01a"
+      ],
+      "schema": "goai-frontier-receipt-validation/v1",
+      "status": "PASS",
+      "taskManifestSha256": "24a465318df9423215ae1ce047a1163d553fef4de62cd5e5ed42f7911a08a098",
+      "transferExecutionBindings": [
+        {
+          "executionReceiptSha256": "d1d52c5de0c84e06fd2dc06d80490d646c38110b99662c6463deb3bf96943798",
+          "pairId": "development.lean.family:transfer-a:pair",
+          "safetyTaskId": "development.lean.family:transfer-a:safety",
+          "taskId": "development.lean.family:transfer-a"
+        },
+        {
+          "executionReceiptSha256": "39f67ceed844fee8d86034faf857ab69ddfd546270a05a84bbce614028032d80",
+          "pairId": "development.lean.family:transfer-b:pair",
+          "safetyTaskId": "development.lean.family:transfer-b:safety",
+          "taskId": "development.lean.family:transfer-b"
+        }
+      ],
+      "transferExecutionReceiptSha256s": [
+        "39f67ceed844fee8d86034faf857ab69ddfd546270a05a84bbce614028032d80",
+        "d1d52c5de0c84e06fd2dc06d80490d646c38110b99662c6463deb3bf96943798"
+      ],
+      "transferExecutionReceiptsValidated": true,
+      "transferTaskIds": [
+        "development.lean.family:transfer-a",
+        "development.lean.family:transfer-b"
+      ],
+      "transferTaskManifestSha256": "4d60b3b97837937032a2cb2c845d196319fe135247b5bca6e41f4b0541f30a3c",
+      "triggerTaskId": "development.lean.family:development-trigger"
+    }
+  ],
+  "schema": "goai-frontier-receipt-rehearsal-validation/v1",
+  "status": "PASS",
+  "validChainCount": 3
+}

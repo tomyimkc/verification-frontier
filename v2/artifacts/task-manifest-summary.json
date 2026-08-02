@@ -1,0 +1,19 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "domainCounts": {
+    "lean": 50,
+    "physics": 50,
+    "symbolic": 50
+  },
+  "manifest": "task-manifest.jsonl",
+  "openControlCount": 3,
+  "schema": "goai-frontier-task-manifest-summary/v1",
+  "sha256": "a9b34e341be3b018447a0f36f3afa10a3ffae98d8443e9b37e3ca361f70cdc79",
+  "splitCounts": {
+    "executable-closed": 90,
+    "frontier-gap": 30,
+    "held-out-executable": 30
+  },
+  "taskCount": 150
+}

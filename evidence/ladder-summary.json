@@ -1,0 +1,39 @@
+{
+  "schema": "goai-ladder-evidence/v1",
+  "sourcePath": "agi-proof/benchmark-results/ladder-passk.public-report.json",
+  "sourceSchema": "ladder-passk-report/v1",
+  "pinnedCommit": "8d0c820886db418a57a394f40a8df62ffbd46bf0",
+  "workflowRun": "30379475209",
+  "modelSpec": "openrouter:deepseek/deepseek-chat",
+  "verifier": "lake env lean (Mathlib v4.24.0)",
+  "rungs": {
+    "closed": {
+      "n": 10,
+      "accepted": 5,
+      "rejected": 5,
+      "abstain": 0,
+      "interpretation": "supplied known proofs accepted; deliberately wronged proof placeholders rejected"
+    },
+    "held-out": {
+      "n": 10,
+      "accepted": 0,
+      "rejected": 10,
+      "abstain": 0,
+      "interpretation": "candidate model-proof result; all attempts failed under the pinned Lean checker"
+    },
+    "open-unformalized": {
+      "n": 11,
+      "accepted": 0,
+      "rejected": 0,
+      "abstain": 11,
+      "interpretation": "environment contract behavior: items lacked executable propositions; not evidence that the model recognized unsolved status"
+    }
+  },
+  "candidateOnly": true,
+  "canClaimAGI": false,
+  "notProven": [
+    "The full ladder run was not preregistered.",
+    "Open-unformalized abstention is designed coverage behavior.",
+    "The result is not a scientific-discovery or model-capability claim."
+  ]
+}

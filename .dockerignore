@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+*.pyc
+dist
+v2/private/*
+!v2/private/README.md
+v2/artifacts/development-model-smoke-*.jsonl
+v2/artifacts/development-model-smoke-*.json

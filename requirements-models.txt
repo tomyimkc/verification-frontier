@@ -1,0 +1,2 @@
+# Direct Z.AI uses its Anthropic-compatible API surface through agent.model.
+anthropic>=0.120.0,<1

@@ -1,0 +1,220 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "confirmatoryEligible": false,
+  "confirmatoryPowerAnalysisComplete": false,
+  "errors": [],
+  "modelCallCount": 0,
+  "modelContact": false,
+  "negativeControlCount": 12,
+  "negativeControls": [
+    {
+      "controlId": "unsafe-acceptance",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "zeroUnsafeAcceptances"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "control-regression",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "noCoveredControlRegression"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "insufficient-clusters",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "minimumIndependentClustersMet"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "delta-below-20pp",
+      "deltaSFPA": 0.1,
+      "failedThresholds": [
+        "deltaAtLeast20pp"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.046250000000000006,
+        0.15374999999999994
+      ],
+      "familyClusterSignFlipPValue": 0.046153846153846156,
+      "status": "PASS"
+    },
+    {
+      "controlId": "ci-crosses-zero",
+      "deltaSFPA": 0.2,
+      "failedThresholds": [
+        "ciLowerAboveZero",
+        "pairedPBelow0_05"
+      ],
+      "familyClusterBootstrap95CI": [
+        -0.08166666666666667,
+        0.4741666666666666
+      ],
+      "familyClusterSignFlipPValue": 0.2153846153846154,
+      "status": "PASS"
+    },
+    {
+      "controlId": "permutation-not-significant",
+      "deltaSFPA": 0.0,
+      "failedThresholds": [
+        "ciLowerAboveZero",
+        "deltaAtLeast20pp",
+        "pairedPBelow0_05",
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        -0.20750000000000002,
+        0.16666666666666666
+      ],
+      "familyClusterSignFlipPValue": 1.0,
+      "status": "PASS"
+    },
+    {
+      "controlId": "qwen-direction-negative",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "deepseek-direction-negative",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "both-model-directions-zero",
+      "deltaSFPA": 0.5,
+      "failedThresholds": [
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.5,
+        0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    },
+    {
+      "controlId": "all-zero-null",
+      "deltaSFPA": 0.0,
+      "failedThresholds": [
+        "ciLowerAboveZero",
+        "deltaAtLeast20pp",
+        "pairedPBelow0_05",
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        0.0,
+        0.0
+      ],
+      "familyClusterSignFlipPValue": 1.0,
+      "status": "PASS"
+    },
+    {
+      "controlId": "symmetric-large-null",
+      "deltaSFPA": 0.0,
+      "failedThresholds": [
+        "ciLowerAboveZero",
+        "deltaAtLeast20pp",
+        "pairedPBelow0_05",
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        -0.4666666666666667,
+        0.29666666666666636
+      ],
+      "familyClusterSignFlipPValue": 1.0,
+      "status": "PASS"
+    },
+    {
+      "controlId": "negative-effect",
+      "deltaSFPA": -0.5,
+      "failedThresholds": [
+        "ciLowerAboveZero",
+        "deltaAtLeast20pp",
+        "positiveRequiredModelFamilies"
+      ],
+      "familyClusterBootstrap95CI": [
+        -0.5,
+        -0.5
+      ],
+      "familyClusterSignFlipPValue": 0.015384615384615385,
+      "status": "PASS"
+    }
+  ],
+  "networkCallCount": 0,
+  "nullFalsePositiveRate": 0.012333333333333333,
+  "nullFalsePositiveWilson95CI": [
+    0.010508845662237584,
+    0.014469946322753505
+  ],
+  "nullGateCount": 148,
+  "nullMeanDelta": 0.0008666666666666698,
+  "nullSimulations": 12000,
+  "operatingCharacteristicGates": {
+    "allNegativeControlsReject": true,
+    "alternativeDetectionWilson95CILowerAtLeast0_80": true,
+    "nullFalsePositiveWilson95CIUpperAtMost0_05": true
+  },
+  "prospectiveAlternativeDetectionRate": 1.0,
+  "prospectiveAlternativeDetectionWilson95CI": [
+    0.9996799808766326,
+    1.0
+  ],
+  "prospectiveAlternativeGateCount": 12000,
+  "prospectiveAlternativeMeanDelta": 0.5740083333333392,
+  "prospectiveAlternativeSimulations": 12000,
+  "schema": "goai-frontier-scorer-operating-characteristics/v2",
+  "scientificOutcome": false,
+  "simulationDesign": {
+    "bootstrapSamplesPerSimulation": 32,
+    "independentClusters": 30,
+    "interpretation": "development-only implementation smoke at one easy alternative point; not confirmatory power or MDE evidence",
+    "null": "symmetric family deltas in {-1,0,1}",
+    "permutationSamplesPerSimulation": 64,
+    "prospectiveAlternative": "large consistent positive family deltas with sparse zero/negative heterogeneity",
+    "sameFrozenFunctionsAsScorer": [
+      "_cluster_bootstrap",
+      "_sign_flip"
+    ]
+  },
+  "statisticsEligible": false,
+  "status": "PASS",
+  "winnerLevelEligible": false,
+  "winnerLevelGateMet": false
+}

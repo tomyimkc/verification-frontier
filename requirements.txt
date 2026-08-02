@@ -1,0 +1,3 @@
+# Optional symbolic-equivalence tier. The SI verifier and fail-closed coverage
+# contract remain runnable with Python stdlib alone.
+sympy>=1.12,<2

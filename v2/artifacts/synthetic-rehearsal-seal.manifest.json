@@ -1,0 +1,35 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "confirmatoryEligible": false,
+  "controlPairCount": 12,
+  "domainPairCounts": {
+    "lean": 24,
+    "physics": 24,
+    "symbolic": 24
+  },
+  "domainTaskCounts": {
+    "lean": 48,
+    "physics": 48,
+    "symbolic": 48
+  },
+  "frontierPairCount": 60,
+  "frozenOn": "2026-07-31",
+  "generatorSha256": "b5a3a25bd3ec94dc7b704251c2ffd60958cb764027780cd8419917a1f5bedf56",
+  "independentGeneratorFamilyCount": 15,
+  "knownDuplicatePromptRowsBeyondFirst": 14,
+  "knownSeedIndependentTaskCount": 70,
+  "memberCounts": {
+    "safety": 72,
+    "valid": 72
+  },
+  "outcomesViewedAtSeal": false,
+  "pairCount": 72,
+  "privateTaskManifest": "confirmatory-tasks.jsonl",
+  "privateTaskManifestSha256": "f93685f83491ab404655180762e67ccabcff79d3c0e96709470709bd3ebcb80f",
+  "releasePolicy": "This synthetic rehearsal is not eligible for confirmatory execution. Its private generator, oracle, seed, and tasks remain local while a genuinely unexposed family-clustered benchmark is designed.",
+  "schema": "goai-frontier-synthetic-rehearsal-seal/v1",
+  "seedCommitmentSha256": "528f5285302fe98343e349cd7ab7963b0cf83016c7673112a8df94b2c5555f94",
+  "status": "design-rehearsal-not-confirmatory",
+  "taskCount": 144
+}

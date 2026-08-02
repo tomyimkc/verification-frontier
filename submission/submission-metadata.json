@@ -1,0 +1,28 @@
+{
+  "schema": "goai-submission-metadata/v1",
+  "track": "前沿探索 / AI for Research",
+  "pathway": "Open Exploration / 开放探索赛题",
+  "titleZh": "安全扩展科学 Agent 的验证边界",
+  "titleEn": "Safely Expanding the Verification Frontier of Scientific Agents",
+  "team": {
+    "type": "individual",
+    "legalName": "Yim Kin Cheong",
+    "publicName": "Tom",
+    "affiliationZh": "独立研究者",
+    "affiliationEn": "Independent Researcher",
+    "location": "Hong Kong"
+  },
+  "deadline": "2026-08-16",
+  "licence": "Apache-2.0",
+  "candidateOnly": true,
+  "canClaimAGI": false,
+  "winnerLevelEligible": false,
+  "winnerLevelGateMet": false,
+  "externalActions": {
+    "registration": "owner-only",
+    "legalAcceptance": "owner-only",
+    "finalUpload": "owner-only",
+    "organizerContact": "owner-only",
+    "travel": "owner-only"
+  }
+}

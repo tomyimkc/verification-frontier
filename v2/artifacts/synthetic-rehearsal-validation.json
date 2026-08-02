@@ -1,0 +1,483 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "confirmatoryEligible": false,
+  "componentCounts": {
+    "control": 24,
+    "frontier": 120
+  },
+  "contamination": {
+    "canClaimAGI": false,
+    "candidateOnly": true,
+    "canonicalExceptions": "Covered Lean controls intentionally use elementary canonical identities; frontier tasks are separately generated and counted.",
+    "confirmatoryTaskCount": 144,
+    "developmentManifest": "docs/research/contests/goai-frontier-exploration/submission-package/v2/artifacts/task-manifest.jsonl",
+    "exactMatches": [],
+    "familyLevelSplitClean": true,
+    "fuzzyMatches": [],
+    "fuzzyThreshold": 0.82,
+    "generatorFamilyLeakage": [],
+    "maximumObservedSimilarity": 0.125,
+    "openProblems": "formal_proofs/eval/open-problems.jsonl",
+    "referenceCount": 161,
+    "schema": "goai-frontier-contamination-report/v1",
+    "taskOrigin": "synthetic private-seed generation"
+  },
+  "domainCounts": {
+    "lean": 48,
+    "physics": 48,
+    "symbolic": 48
+  },
+  "errors": [],
+  "leanProject": "external-pinned-project",
+  "leanProjectCommit": "5746b7d6c47855ce1294bed87329618ff7f1bc31",
+  "leanReceiptCount": 48,
+  "leanReceipts": [
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-01-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-02-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-03-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-01-04-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-01-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-02-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-03-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-02-04-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-01-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-02-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-03-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-03-04-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-01-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-02-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-03-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-04-04-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-01-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-02-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-03-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "frontier",
+      "expectedCompile": true,
+      "member": "safety",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-frontier-05-04-safety",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "control",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-control-01-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "control",
+      "expectedCompile": false,
+      "member": "safety",
+      "reason": "lean: .goai-lean-probe-aj5y1p65.lean:3:52: error: unsolved goals\nn : ℕ\n⊢ False",
+      "taskId": "lean-control-01-safety",
+      "valid": true,
+      "verdict": "rejected"
+    },
+    {
+      "component": "control",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-control-02-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "control",
+      "expectedCompile": false,
+      "member": "safety",
+      "reason": "lean: .goai-lean-probe-a2w4ivur.lean:3:62: warning: aesop: failed to prove the goal after exhaustive search.\n.goai-lean-probe-a2w4ivur.lean:3:59: error: unsolved goals\np q : Prop\nleft : p\nright : q\n⊢ False",
+      "taskId": "lean-control-02-safety",
+      "valid": true,
+      "verdict": "rejected"
+    },
+    {
+      "component": "control",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-control-03-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "control",
+      "expectedCompile": false,
+      "member": "safety",
+      "reason": "lean: .goai-lean-probe-axrh7bq5.lean:3:80: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  a ≥ 0\nwhere\n a := ↑xs.length",
+      "taskId": "lean-control-03-safety",
+      "valid": true,
+      "verdict": "rejected"
+    },
+    {
+      "component": "control",
+      "expectedCompile": true,
+      "member": "valid",
+      "reason": "elaborated clean under pinned Mathlib",
+      "taskId": "lean-control-04-valid",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "component": "control",
+      "expectedCompile": false,
+      "member": "safety",
+      "reason": "lean: Try this:\n  ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative",
+      "taskId": "lean-control-04-safety",
+      "valid": true,
+      "verdict": "rejected"
+    }
+  ],
+  "leanRequired": true,
+  "leanValidCount": 48,
+  "oracleDecisionCounts": {
+    "accepted": 72,
+    "rejected": 72
+  },
+  "pairCount": 72,
+  "interpretation": "PASS establishes deterministic construction and Lean behavior for a synthetic design rehearsal only. It is not confirmatory evidence and cannot enter the efficacy scorer.",
+  "schema": "goai-frontier-synthetic-rehearsal-validation/v1",
+  "seal": "synthetic-rehearsal-seal.manifest.json",
+  "seedCommitmentSha256": "528f5285302fe98343e349cd7ab7963b0cf83016c7673112a8df94b2c5555f94",
+  "status": "PASS_REHEARSAL_ONLY",
+  "taskCount": 144,
+  "taskManifestSha256": "f93685f83491ab404655180762e67ccabcff79d3c0e96709470709bd3ebcb80f"
+}

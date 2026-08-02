@@ -1,0 +1,64 @@
+{
+  "artifacts": {
+    "episodes": "episodes.jsonl",
+    "summary": "benchmark-summary.json"
+  },
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "environment": {
+    "lean": "external_receipt_only_not_bundled",
+    "policies": [
+      "always-answer",
+      "abstain-all",
+      "single-shot",
+      "scripted-refine"
+    ],
+    "problems": 6,
+    "si": "available",
+    "sympy": "available"
+  },
+  "interpretation": {
+    "claimCeiling": "environment/instrument evidence only; no model capability or AGI claim",
+    "closedAndHeldOut": "terminal verdicts reflect the executable verifier available in this run",
+    "openUnformalized": "abstention is environment contract behavior caused by missing executable specifications; it is not evidence that a model recognized an unsolved problem"
+  },
+  "policies": {
+    "abstain-all": {
+      "openUnformalizedAccepted": 0,
+      "steps": 6,
+      "terminalVerdicts": {
+        "abstain": 6,
+        "accepted": 0,
+        "rejected": 0
+      }
+    },
+    "always-answer": {
+      "openUnformalizedAccepted": 0,
+      "steps": 6,
+      "terminalVerdicts": {
+        "abstain": 1,
+        "accepted": 4,
+        "rejected": 1
+      }
+    },
+    "scripted-refine": {
+      "openUnformalizedAccepted": 0,
+      "steps": 12,
+      "terminalVerdicts": {
+        "abstain": 1,
+        "accepted": 5,
+        "rejected": 0
+      }
+    },
+    "single-shot": {
+      "openUnformalizedAccepted": 0,
+      "steps": 6,
+      "terminalVerdicts": {
+        "abstain": 0,
+        "accepted": 1,
+        "rejected": 5
+      }
+    }
+  },
+  "schema": "goai-verification-ladder-benchmark/v1"
+}

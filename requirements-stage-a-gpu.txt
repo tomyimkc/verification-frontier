@@ -1,0 +1,8 @@
+# The Pro6000 workflow installs torch==2.11.0 from the CUDA 12.8 index first.
+# Keep the direct-transformers Stage A environment independent of vLLM/SGLang.
+transformers==5.13.1
+accelerate==1.10.1
+# transformers 5.13.1 requires huggingface-hub>=1.5.0,<2.0.
+huggingface-hub==1.5.0
+# transformers 5.13.1 requires safetensors>=0.8.0.
+safetensors==0.8.0

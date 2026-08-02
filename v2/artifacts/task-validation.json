@@ -1,0 +1,1225 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "counts": {
+    "lean:abstain": 10,
+    "lean:accepted": 40,
+    "physics:abstain": 10,
+    "physics:accepted": 40,
+    "symbolic:abstain": 10,
+    "symbolic:accepted": 40
+  },
+  "invalidCount": 0,
+  "leanProjectCommit": "5746b7d6c47855ce1294bed87329618ff7f1bc31",
+  "leanProjectLabel": "pinned-miniF2F-lean4",
+  "leanProjectRepository": "yangky11/miniF2F-lean4",
+  "leanRequired": true,
+  "leanVersion": "4.24.0",
+  "manifest": "task-manifest.jsonl",
+  "manifestSha256": "a9b34e341be3b018447a0f36f3afa10a3ffae98d8443e9b37e3ca361f70cdc79",
+  "receipts": [
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-freefall-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-ke-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "executable-closed",
+      "taskId": "physics-closed-force-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "dimension_and_value_match",
+      "split": "held-out-executable",
+      "taskId": "physics-heldout-momentum-11",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "physics",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-01-missing-speed-contract",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-02-missing-tolerance",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "missing_verifier",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-03-missing-temperature-verifier",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "missing_verifier",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-04-missing-vector-verifier",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "ambiguous_target",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-05-ambiguous-acceleration",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "unsupported_domain",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-06-unsupported-fluid-domain",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "resource_limit",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-07-resource-orbit",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "tool_failure",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-08-tool-failed-solver",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "insufficient_evidence",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-09-missing-calibration-data",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "physics",
+      "reason": "formalization_failed",
+      "split": "frontier-gap",
+      "taskId": "physics-frontier-10-formalization-units",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-square-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-diffsq-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-01",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "executable-closed",
+      "taskId": "symbolic-closed-product-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-02",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-03",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-04",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-05",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-06",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-07",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-08",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-09",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-10",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "symbolically_equivalent",
+      "split": "held-out-executable",
+      "taskId": "symbolic-heldout-cubic-11",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-01-undefined-assumptions",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-02-missing-equivalence-domain",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "missing_verifier",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-03-missing-matrix-verifier",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "missing_verifier",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-04-missing-distribution-verifier",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "ambiguous_target",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-05-ambiguous-normal-form",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "unsupported_domain",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-06-unsupported-category-theory",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "resource_limit",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-07-resource-groebner",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "tool_failure",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-08-tool-failed-cas",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "insufficient_evidence",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-09-missing-parameter-evidence",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "symbolic",
+      "reason": "formalization_failed",
+      "split": "frontier-gap",
+      "taskId": "symbolic-frontier-10-formalization-piecewise",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-01-nat-add-zero",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-02-nat-zero-add",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-03-nat-mul-one",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-04-nat-one-mul",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-05-nat-add-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-06-nat-add-assoc",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-07-nat-mul-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-08-nat-left-distrib",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-09-nat-right-distrib",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-10-nat-double",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-11-prop-id",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-12-prop-and-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-13-prop-or-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-14-prop-and-left",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-15-prop-and-right",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-16-prop-not-false",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-17-prop-true",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-18-prop-compose",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-19-prop-and-true",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-20-prop-or-false",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-21-int-add-zero",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-22-int-sub-self",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-23-int-mul-zero",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-24-int-add-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-25-int-mul-comm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-26-eq-symm",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-27-list-reverse",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-28-set-subset-refl",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-29-nat-max-self",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "executable-closed",
+      "taskId": "lean-closed-30-nat-min-self",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-01-nat-succ-positive",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-02-nat-add-cancel",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-03-nat-square-nonneg",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-04-int-neg-neg",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-05-prop-mp",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-06-prop-curry",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-07-list-append-nil",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-08-list-length-append",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-09-set-inter-self",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "elaborated clean under pinned Mathlib",
+      "split": "held-out-executable",
+      "taskId": "lean-heldout-10-nat-three-even-six",
+      "valid": true,
+      "verdict": "accepted"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-01-missing-natural-language-map",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-02-missing-side-conditions",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_verifier",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-03-missing-library-verifier",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "ambiguous_target",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-04-ambiguous-quantifiers",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "resource_limit",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-05-resource-large-proof",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "tool_failure",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-06-tool-failed-lean",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "formalization_failed",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-07-formalization-mismatch",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-08-riemann-control",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-09-p-vs-np-control",
+      "valid": true,
+      "verdict": "abstain"
+    },
+    {
+      "domain": "lean",
+      "reason": "missing_executable_spec",
+      "split": "frontier-gap",
+      "taskId": "lean-frontier-10-navier-stokes-control",
+      "valid": true,
+      "verdict": "abstain"
+    }
+  ],
+  "schema": "goai-frontier-task-validation/v1",
+  "taskCount": 150,
+  "validCount": 150
+}

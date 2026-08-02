@@ -1,0 +1,55 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "caseCount": 7,
+  "cases": [
+    {
+      "case": "intact-development-chains",
+      "expected": "3/3 PASS",
+      "observed": "3/3 PASS",
+      "passed": true
+    },
+    {
+      "case": "missing-evidence-blob",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    },
+    {
+      "case": "content-tamper",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    },
+    {
+      "case": "missing-independent-review",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    },
+    {
+      "case": "result-cross-link-mismatch",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    },
+    {
+      "case": "development-receipt-used-as-confirmatory",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    },
+    {
+      "case": "self-declared-confirmatory-chain",
+      "expected": "INVALID",
+      "observed": "INVALID",
+      "passed": true
+    }
+  ],
+  "confirmatoryEligible": false,
+  "evidenceClass": "development-only",
+  "failedCount": 0,
+  "passedCount": 7,
+  "schema": "goai-frontier-receipt-protocol-benchmark/v1",
+  "status": "PASS"
+}

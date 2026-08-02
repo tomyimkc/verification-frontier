@@ -1,0 +1,1349 @@
+{
+  "canClaimAGI": false,
+  "candidateOnly": true,
+  "confirmatoryEligible": false,
+  "errors": [],
+  "invalidCases": [
+    {
+      "caseId": "root-schema",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-status",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-studyId",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH",
+        "ARM_RESULT_MANIFEST_MISMATCH",
+        "STUDY_ID_INVALID",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-protocolTwinRootSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-protocolTwinValidationSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-armResultManifestSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-ablationResultManifestSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-receiptRehearsalIndexSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-receiptRehearsalValidationSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-receiptGraphReportSha256",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-sourceFileSha256s",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-requiredArmRowCount",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-requiredB6RowCount",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-requiredAblationRowCount",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-requiredAblationVariantCount",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-transferExecutionReceiptCount",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-candidateOnly",
+      "issueCodes": [
+        "CLAIM_CEILING_CANDIDATE_ONLY",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-canClaimAGI",
+      "issueCodes": [
+        "CLAIM_CEILING_AGI",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-winnerLevelEligible",
+      "issueCodes": [
+        "CLAIM_CEILING_RELAXED",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "root-winnerLevelGateMet",
+      "issueCodes": [
+        "CLAIM_CEILING_RELAXED",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B0-raw-model-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B1-fixed-verifier-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B2-fixed-refinement-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B3-act-or-abstain-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B4-human-only-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B5-proposed-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-missing-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-duplicate-row",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-decision-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-candidate-hash-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-schema-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-budget-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-claim-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "arm-B6-oracle-ceiling-source-root-drift",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A1-no-human-gate-automatic-activation-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A2-no-executable-extension-natural-language-feedback-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A3-no-transfer-requirement-task-local-activation-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A4-forced-binary-verifier-abstain-as-reject-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-physics-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-symbolic-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A5-remove-one-tier-lean-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-fixed-replay-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A6-replay-vs-interactive-interactive-feedback-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-ai-assisted-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A7-ai-vs-human-extension-human-only-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-visible-safety-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-missing-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-duplicate-row",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-decision-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-candidate-hash-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-schema-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "ablation-A8-visible-vs-hidden-safety-hidden-safety-budget-drift",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-missing-chain",
+      "issueCodes": [
+        "RECEIPT_GRAPH_INVALID",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-bogus-chain",
+      "issueCodes": [
+        "RECEIPT_GRAPH_INVALID",
+        "STUDY_ROOT_MISMATCH",
+        "TRANSFER_EXECUTION_DESCENDANTS_INVALID"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-duplicate-chain",
+      "issueCodes": [
+        "RECEIPT_GRAPH_INVALID",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-validation-status",
+      "issueCodes": [
+        "RECEIPT_GRAPH_INVALID",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-validation-count",
+      "issueCodes": [
+        "RECEIPT_GRAPH_INVALID",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-twin-root",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH",
+        "ARM_RESULT_MANIFEST_MISMATCH",
+        "PROTOCOL_TWIN_INVALID",
+        "PROTOCOL_TWIN_VALIDATION_MISMATCH",
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-twin-contact",
+      "issueCodes": [
+        "PROTOCOL_TWIN_INVALID",
+        "PROTOCOL_TWIN_VALIDATION_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-arm-manifest-hash",
+      "issueCodes": [
+        "ARM_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-ablation-manifest-hash",
+      "issueCodes": [
+        "ABLATION_RESULT_MANIFEST_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "caseId": "cross-transfer-execution-list",
+      "issueCodes": [
+        "STUDY_ROOT_MISMATCH"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "invalidDagCount": 164,
+  "invalidDagRejected": 164,
+  "modelCallCount": 0,
+  "modelContact": false,
+  "networkCallCount": 0,
+  "schema": "goai-frontier-study-root-dag-benchmark/v1",
+  "scientificOutcome": false,
+  "stableTypedIssueCodes": [
+    "ABLATION_RESULT_MANIFEST_MISMATCH",
+    "ARM_RESULT_MANIFEST_MISMATCH",
+    "CLAIM_CEILING_AGI",
+    "CLAIM_CEILING_CANDIDATE_ONLY",
+    "CLAIM_CEILING_RELAXED",
+    "PROTOCOL_TWIN_INVALID",
+    "PROTOCOL_TWIN_VALIDATION_MISMATCH",
+    "RECEIPT_GRAPH_INVALID",
+    "STUDY_ID_INVALID",
+    "STUDY_ROOT_MISMATCH",
+    "TRANSFER_EXECUTION_DESCENDANTS_INVALID"
+  ],
+  "statisticsEligible": false,
+  "status": "PASS",
+  "validCases": [
+    {
+      "caseId": "goai-development-study-root-v3-00",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "de8cd4d43a9bd5e4f097319046399cdc2949982e5775a5f54b9d193cb078c21a"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-01",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "bce260a09afd8843f3a9857addc85eab63b2e5a9febe6fa79a26056201b45816"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-02",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "5ed41b4774da11e9480b9820862922346b4fb9d0525c7d20f90c0be902a9d69b"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-03",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "a875d1b48e1f87d44e32f3b30643fb7945f10c178df7ac8800c90554de330d07"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-04",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "5895f690435883ecf6608509905448843e9edeec4d3a744138e15c41d17a4bcc"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-05",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "9f319669b5efda80fe650e4f3f55bf339c4f0ea927fdb6af4f0c3d99ad02fa1d"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-06",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "d76de2a58c01e3a3dd1d3260a4bb46be295fe0a300f37b8b5e8ed2d59bdb0591"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-07",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "9ae70421cfe99d5daeeb42da4adf74c466f427d03d7a823d6c1a91d8f8349c68"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-08",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "a75e0303a9ffca718e2a384db5bc686ddf5d2d4423c5da4bc4eae057e21e11f7"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-09",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "4c07613adb28539e9e29767843aea8a70dec16595e2e0cd8a126515fa10bf18e"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-10",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "f7dd5b279b6ef4f18f2019ae1a367933ebe422679a5916aede909565c2955322"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-11",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "38860260306560a6d9be140a3bceaa31e8476a34d3aefe19d5fc114b0bda981a"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-12",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "66fda09a6d3a109876a77de467e906a30dd9291fb2293eae7d334fb8b7882bea"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-13",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "0c2cbfec2bd2ae740fc2e38622b08166c40582584d7f778a97f3c0d18d3e1827"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-14",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "4c47d8fe0ca64fffda83392384e80c5fd4bbe77a8d99c7d460ce51574ba09ad3"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-15",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "65b5192b23b054c9212a5d03b662b14875403a731372c88f86fc0254bb72654e"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-16",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "becd1c8f895a2f736fe42b034dfe7c57837eccdbf73dd1845161acd85b59a9fd"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-17",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "4cb4baf9ac1f4d58828080aaacf8ee9718fbc116039d61b8bef388a4708b1d43"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-18",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "54753c008d4cbe4457fac63e6d8143fb633022133d9fb4e8d2ee39131a25f661"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-19",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "d37ee9f899c61a2ffd836603eebc471a5118412378ea906551f00aad65683b1d"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-20",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "6ed844fa7a925e21c8084dd7c65e0f63ecff6032d97bbe22d5f899b4f1f0f0e7"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-21",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "27787dc1d06784ecd0d49801b3399ed3f52ea3d3fc2eb3d2a288384444760c01"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-22",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "0ecda4eb9ca86ba8426be589787071b1024a19e9e1d784c10e93a4c90483a468"
+    },
+    {
+      "caseId": "goai-development-study-root-v3-23",
+      "issueCodes": [],
+      "status": "PASS",
+      "studyRootSha256": "6ba8aa399f29a9f0d5f7ea49f89fcb922b17e2bbabdfaac2d1795cc62b97b04b"
+    }
+  ],
+  "validDagCount": 24,
+  "validDagDiversity": "24 deterministic row-order serialization variants of one valid DAG topology, bound by serializationVariant",
+  "validDagPassed": 24,
+  "validDagTopologyCount": 1,
+  "validSerializationVariantCount": 24,
+  "winnerLevelEligible": false,
+  "winnerLevelGateMet": false
+}
