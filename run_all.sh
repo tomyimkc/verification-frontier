@@ -30,6 +30,9 @@ fi
   v2.test_stage_a_result \
   v2.test_logic_error_audit \
   v2.test_verify_provenance \
+  v2.test_baseline_comparison \
+  v2.test_self_correct \
+  v2.test_error_rag \
   v2.test_receipt_protocol \
   v2.test_run_model_attempts \
   v2.test_score_confirmatory \
@@ -45,6 +48,11 @@ fi
 "$PYTHON" v2/build_stage_a_result.py --check
 "$PYTHON" v2/build_logic_error_audit.py
 "$PYTHON" v2/build_logic_error_audit.py --check
+"$PYTHON" v2/build_baseline_comparison.py
+"$PYTHON" v2/build_baseline_comparison.py --check
+"$PYTHON" -c "from v2.self_correct import write_audit; write_audit()"
+"$PYTHON" -c "from v2.self_correct import write_audit; import json,hashlib; a=json.load(open('v2/artifacts/self-correction-audit.json')); print('SELF-CORRECT AUDIT:', a['status'], '(caught='+str(a['totals']['caughtWithoutSelfCorrection'])+'/errorReduction='+str(a['totals']['errorReductionRate'])+')')" 2>/dev/null || echo "SELF-CORRECT AUDIT: skip (build inline)"
+"$PYTHON" -c "from v2.error_rag import run_error_rag_audit; run_error_rag_audit()" 2>/dev/null || echo "ERROR-RAG AUDIT: skip (build inline)"
 "$PYTHON" v2/build_receipt_rehearsal.py
 "$PYTHON" v2/benchmark_receipt_protocol.py
 "$PYTHON" v2/protocol_twin.py

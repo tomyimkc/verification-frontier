@@ -93,6 +93,9 @@ REQUIRED = {
     "v2/stage_a_pro6000.py",
     "v2/build_stage_a_result.py",
     "v2/build_logic_error_audit.py",
+    "v2/build_baseline_comparison.py",
+    "v2/self_correct.py",
+    "v2/error_rag.py",
     "v2/verify_provenance.py",
     "v2/benchmark_study_root.py",
     "v2/simulate_scorer.py",
@@ -114,6 +117,9 @@ REQUIRED = {
     "v2/test_stage_a_result.py",
     "v2/test_logic_error_audit.py",
     "v2/test_verify_provenance.py",
+    "v2/test_baseline_comparison.py",
+    "v2/test_self_correct.py",
+    "v2/test_error_rag.py",
     "v2/test_run_model_attempts.py",
     "v2/test_receipt_protocol.py",
     "v2/test_score_confirmatory.py",
@@ -139,6 +145,9 @@ REQUIRED = {
     "v2/artifacts/stage-a-readiness.json",
     "v2/artifacts/stage-a-development-result.json",
     "v2/artifacts/logic-error-catch-rate.json",
+    "v2/artifacts/baseline-comparison.json",
+    "v2/artifacts/self-correction-audit.json",
+    "v2/artifacts/error-rag-audit.json",
 }
 
 
