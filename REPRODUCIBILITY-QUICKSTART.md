@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/复现指南.md`](复现指南.md)
+
 # Reproducibility quickstart
 
 > **No GPU, no network, no login, no model credentials required** to verify

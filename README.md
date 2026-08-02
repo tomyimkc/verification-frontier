@@ -16,7 +16,7 @@
 **团队 / Team:** 严建正 (Yim Kin Cheong, Tom) · 独立研究者 · 香港 / Independent Researcher · Hong Kong
 **许可 / License:** Apache-2.0
 
-**🌐 Demo:** <待发布 / to be published> · **📦 附件 ZIP:** `dist/GOAI-AI4R-Open-Exploration.zip`
+**🌐 Demo:** https://tomyimkc-sophia-agi.hf.space · **📦 附件 ZIP:** `dist/GOAI-AI4R-Open-Exploration.zip`
 
 </div>
 

@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/官方规则核验.md`](官方规则核验.md)
+
 # GOAI official-rules check
 
 **Checked:** August 1, 2026 (Asia/Hong_Kong)

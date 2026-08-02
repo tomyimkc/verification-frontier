@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/架构.md`](架构.md)
+
 # Architecture
 
 > A judge-facing map of the system. The dotted line is the trust boundary:

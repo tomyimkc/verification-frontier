@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/证据矩阵.md`](证据矩阵.md)
+
 # Evidence-to-claim matrix
 
 > Every public claim in this submission maps to a committed, hash-bound

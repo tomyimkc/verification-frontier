@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/评审对照.md`](评审对照.md)
+
 # Judging-criteria crosswalk
 
 > Maps each official Open Exploration judging criterion to exactly where this

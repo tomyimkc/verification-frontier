@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/项目叙述.md`](项目叙述.md)
+
 # GOAI 2026 前沿探索 / AI for Research
 
 ## Safely Expanding the Verification Frontier of Scientific Agents

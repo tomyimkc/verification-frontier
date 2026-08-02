@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/执行摘要.md`](执行摘要.md)
+
 # Executive summary / 执行摘要
 
 > **One page for judges.** This is the fastest entry point. Everything claimed

@@ -12,6 +12,8 @@
 | [失败展示.md](失败展示.md) | `FAILURE-SHOWCASE.md` | 失败作为完整性证据 |
 | [复现指南.md](复现指南.md) | `REPRODUCIBILITY-QUICKSTART.md` | 两分钟 CPU 复现 |
 | [项目叙述.md](项目叙述.md) | `PROJECT.md` | 完整提交叙述与披露 |
+| [官方规则核验.md](官方规则核验.md) | `OFFICIAL-RULES-CHECK.md` | 赛事规则、截止日期、评审权重 |
+| [相关工作.md](相关工作.md) | `RELATED-WORK.md` | 相关工作与新颖性边界 |
 
 **声明边界（冻结）：** `candidateOnly:true`、`canClaimAGI:false`、
 `winnerLevelEligible:false`、`winnerLevelGateMet:false`；

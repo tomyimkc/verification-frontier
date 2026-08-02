@@ -1,3 +1,5 @@
+> 🌐 简体中文 / Simplified Chinese: [`zh/失败展示.md`](失败展示.md)
+
 # Failure-case showcase
 
 > Per the handbook, **negative results are permitted** if the process and

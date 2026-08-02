@@ -1,5 +1,5 @@
 ---
-title: Verification Frontier
+title: 验证边界 Verification Frontier
 emoji: 🛡️
 colorFrom: indigo
 colorTo: blue
@@ -8,32 +8,28 @@ sdk_version: "5.49.0"
 app_file: app.py
 pinned: true
 license: apache-2.0
-short_description: Human-gated scientific verification frontier (GOAI 2026 AI for Research)
+short_description: "安全扩展科学 Agent 的验证边界 (GOAI 2026 AI for Research)"
 ---
 
-# Verification Frontier · 验证边界
+# 验证边界 · Verification Frontier
 
-Public, no-login instrument demo for **GOAI 2026 AI for Research / Open Exploration**:
-**Safely Expanding the Verification Frontier of Scientific Agents (安全扩展科学 Agent 的验证边界).**
+**安全扩展科学 Agent 的验证边界 / Safely Expanding the Verification Frontier of Scientific Agents**
 
+GOAI 2026 AI for Research · Open Exploration — 公开免登录演示 / public no-login demo.
+
+本 Space 运行确定性的、无需 provider 的验证环境（来自
+[verification-frontier](https://github.com/tomyimkc/verification-frontier) 仓库）。
 This Space runs the deterministic, provider-free verification environment from the
 [verification-frontier](https://github.com/tomyimkc/verification-frontier) repository.
-It exposes public SI verification, symbolic verification, deterministic reference
-episodes, a synthetic owner+expert-AI+test gate preview, and the public seal/claim-ceiling
-metadata. **It makes zero network calls and zero model calls.**
 
-### Claim ceiling
+**零网络调用，零模型调用 / Zero network calls, zero model calls.**
+
+## 声明边界 / Claim ceiling
 
 ```json
 {"candidateOnly": true, "canClaimAGI": false, "winnerLevelEligible": false, "winnerLevelGateMet": false}
 ```
 
-This is an **instrument/environment demo**, not a confirmatory result, capability claim,
-verifier extension, or contest score.
-
-### Reproduce locally
-
-```bash
-pip install gradio sympy
-python app.py
-```
+这是一个**环境/工具演示**，不是确认性结果、能力声明、验证器扩展或竞赛成绩。
+This is an **environment/instrument demo**, not a confirmatory result, capability
+claim, verifier extension, or contest score.
