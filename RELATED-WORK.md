@@ -1,5 +1,3 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/相关工作.md`](相关工作.md)
-
 # Claim-safe related-work comparison
 
 Checked against public primary sources on 2026-07-31.

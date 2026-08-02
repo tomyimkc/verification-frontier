@@ -28,6 +28,8 @@ fi
   v2.test_stage_a_model \
   v2.test_stage_a_pro6000 \
   v2.test_stage_a_result \
+  v2.test_logic_error_audit \
+  v2.test_verify_provenance \
   v2.test_receipt_protocol \
   v2.test_run_model_attempts \
   v2.test_score_confirmatory \
@@ -41,6 +43,8 @@ fi
 "$PYTHON" v2/stage_a.py --check
 "$PYTHON" v2/build_stage_a_result.py
 "$PYTHON" v2/build_stage_a_result.py --check
+"$PYTHON" v2/build_logic_error_audit.py
+"$PYTHON" v2/build_logic_error_audit.py --check
 "$PYTHON" v2/build_receipt_rehearsal.py
 "$PYTHON" v2/benchmark_receipt_protocol.py
 "$PYTHON" v2/protocol_twin.py

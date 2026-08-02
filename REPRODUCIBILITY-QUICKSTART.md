@@ -1,5 +1,3 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/复现指南.md`](复现指南.md)
-
 # Reproducibility quickstart
 
 > **No GPU, no network, no login, no model credentials required** to verify
@@ -20,6 +18,20 @@ python3 verify_bundle.py                     # deterministic ZIP integrity + cla
 ```
 
 If all four print `PASS`/`SELF-CHECK PASSED`, the core evidence is intact.
+
+### Logic-error catch-rate audit (strongest instrument evidence; needs `sympy`)
+
+The 16/16 planted-logic-error catch-rate requires the optional symbolic tier.
+Run it with the venv interpreter (which has `sympy`):
+
+```bash
+.venv/bin/python v2/build_logic_error_audit.py --check
+# expect: LOGIC ERROR AUDIT: PASS (planted=16; caught=16; missed=0; catchRate=1.0)
+```
+
+(With bare `python3` and no `sympy`, the SymPy tier abstains and the audit
+correctly reports a non-canonical result — the 16/16 figure is conditional on
+the optional tier being installed, as designed.)
 
 ## 2. Full deterministic suite (≈2 min with the venv)
 

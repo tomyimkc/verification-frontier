@@ -1,5 +1,3 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/证据矩阵.md`](证据矩阵.md)
-
 # Evidence-to-claim matrix
 
 > Every public claim in this submission maps to a committed, hash-bound
@@ -9,6 +7,26 @@
 > Verification commands are CPU-only and need no GPU. SHA-256 prefixes are
 > shown for readability; full digests are in each artifact and in the bundle's
 > `MANIFEST.sha256`.
+
+## A0. Logic-error catch-rate (the strongest instrument evidence)
+
+The deterministic verifiers **are** the logic-error detectors. A dimension
+mismatch *is* a logic error, caught mechanically. This audit plants known logic
+errors across **every** verifier tier and records whether each was caught. The
+catch-rate is a property of the deterministic verifiers, not of any model — it is
+**instrument evidence that the verifiers are real and fail-closed**, not a
+model-capability, capability-uplift, or contest-performance result.
+
+| Public statement | Bound artifact / receipt | SHA-256 (prefix) | How to verify |
+|---|---|---|---|
+| 16 planted logic errors (8 SI dimension+value, 6 SymPy equivalence, 2 Lean proof-placeholder), **16/16 caught = 100% catch-rate**, 0 misses | `v2/artifacts/logic-error-catch-rate.json` | `eaa5d302…` | `python3 v2/build_logic_error_audit.py --check` |
+| By-tier breakdown: SI 8/8, SymPy 6/6, Lean-placeholder 2/2 (all `catchRate: 1.0`) | same artifact `byTier` + `details` | `eaa5d302…` | same check prints `PASS (planted=16; caught=16; missed=0; catchRate=1.0)` |
+| Audit is fail-closed: builder refuses to relax the claim ceiling; any miss is recorded, never hidden; checker byte-compares canonical bytes | `v2/build_logic_error_audit.py` + `CLAIM_CEILING` enforced in artifact | — | `python3 v2/build_logic_error_audit.py --check` (needs `sympy`; use `.venv/bin/python`) |
+
+> **Scope note:** this is a *planted*-error catch-rate. It says the verifiers
+> detect the logic errors they are designed to detect. It does **not** say what
+> fraction of an unseen LLM's logic errors are in scope — that is the open
+> research question the human-gated frontier expansion is built to answer.
 
 ## A. Stage A development run (the real result)
 

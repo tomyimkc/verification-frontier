@@ -1,10 +1,14 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/架构.md`](架构.md)
-
 # Architecture
 
-> A judge-facing map of the system. The dotted line is the trust boundary:
-> **everything to its right is deterministic, content-addressed, or human-gated.
-> No model output is ever an approval, and no model can cross the line alone.**
+> A judge-facing map of the system. The dotted line is the trust boundary —
+> **where the LLM's probabilistic reasoning ends and deterministic logic-error
+> detection begins.** Everything to its right is deterministic,
+> content-addressed, or human-gated. No model output is ever an approval, and no
+> model can cross the line alone. The verifiers (SI dimension+value, SymPy
+> equivalence, Lean kernel) **are** the logic-error detectors: a dimension
+> mismatch *is* a logic error, caught mechanically. A planted-logic-error audit
+> catches **16/16 = 100%** of known errors across all three tiers
+> (`v2/artifacts/logic-error-catch-rate.json`).
 
 ## End-to-end flow
 
@@ -30,7 +34,8 @@
                                                           │  raw model text
 ═══════════════════════════════════════════════════════════╪═══════════════════
  ▲ TRUST BOUNDARY — model generation ends here; below is   │
- │ deterministic / human-gated. No model text is a cert.    ▼
+ │ deterministic LOGIC-ERROR DETECTION. No model text       ▼
+ │ is a cert. Verifiers catch 16/16 planted logic errors.   │
  │                  ┌──────────────────────────────────────────────────┐
  │                  │  strict parser + schema gate                      │
  │                  │  (malformed JSON retained, never retried to hide) │
@@ -45,9 +50,9 @@
  │                  └────────────┬─────────────────────────────────────┘
  │                               │  clean typed proposal / typed abstain
  │                  ┌────────────▼─────────────────────────────────────┐
- │   accept/reject  │  deterministic verifier tier                     │
- │   /abstain  ◄────┤  SI dimension+value · SymPy equivalence · Lean   │
- │                  │  kernel (sorry/admit rejected before abstention)  │
+ │   accept/reject  │  deterministic verifier tier = LOGIC-ERROR       │
+ │   /abstain  ◄────┤  DETECTOR: SI dimension+value · SymPy equiv ·    │
+ │                  │  Lean kernel (sorry/admit rejected before abstain)│
  │                  └────────────┬─────────────────────────────────────┘
  │            accepted │          │ abstain (coverage gap)
  │                keep │          ▼
@@ -95,7 +100,7 @@
 | Frozen task/verifier/policy | ✅ done | 24-family manifest, 150-row task manifest, pinned Lean |
 | Model proposal collection | ✅ **done (development)** | real Stage A run 23/24 — but 0 approvals |
 | Strict parser/schema/policy | ✅ done | seven policy totals at zero; malformed retained |
-| Deterministic verifier tiers | ✅ done | SI + SymPy available; Lean external-receipt-only |
+| Deterministic verifier tiers | ✅ done | SI + SymPy available; Lean external-receipt-only; **16/16 planted logic errors caught (100% catch-rate audit)** |
 | Owner review | ⬜ not done | owner-only action |
 | Independent expert-AI review | ⬜ not done | needs a fresh blinded reviewer (author saw aggregates) |
 | Visible tests | ⬜ not done | 0 tests executed |

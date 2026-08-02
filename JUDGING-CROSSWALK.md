@@ -1,5 +1,3 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/评审对照.md`](评审对照.md)
-
 # Judging-criteria crosswalk
 
 > Maps each official Open Exploration judging criterion to exactly where this
@@ -13,7 +11,7 @@
 | Weight | Official criterion | Where addressed in this package |
 |---:|---|---|
 | **45 %** | problem definition and environment-design quality | `EXECUTIVE-SUMMARY.md` §"The problem"; `PROJECT.md` §1–4 (research question, fixed/explorable, environment contract, three domains); `submission/submission-en.md` §1–2; `ARCHITECTURE.md`; `v2/FRONTIER-EXPANSION-SPEC.md` |
-| **35 %** | exploration process and scientific/research signal | `PROJECT.md` §5–8 (development pack, rehearsal vs target, primary endpoint SFPA, baselines/ablations); `v2/PREREGISTRATION.md`; the **real Stage A development result** (`v2/artifacts/stage-a-development-result.json`, 23/24 + retained malformed); `FAILURE-SHOWCASE.md` (negative/anomaly signals); `v2/DEVELOPMENT-FAILURES.md` |
+| **35 %** | exploration process and scientific/research signal | **Logic-error catch-rate audit (key new evidence): 16 planted logic errors, 16/16 caught = 100% catch-rate** (`v2/artifacts/logic-error-catch-rate.json`, `python3 v2/build_logic_error_audit.py --check`) — instrument evidence the verifiers are real and fail-closed across every tier; `PROJECT.md` §5–8 (development pack, rehearsal vs target, primary endpoint SFPA, baselines/ablations); `v2/PREREGISTRATION.md`; the **real Stage A development result** (`v2/artifacts/stage-a-development-result.json`, 23/24 + retained malformed — structured-output/policy compliance *and* confirms the verifiers are real); `FAILURE-SHOWCASE.md` (negative/anomaly signals); `v2/DEVELOPMENT-FAILURES.md` |
 | **20 %** | verifiability and extensibility | `REPRODUCIBILITY-QUICKSTART.md`; `EVIDENCE-TO-CLAIM-MATRIX.md`; `verify_bundle.py` + deterministic ZIP; `v2/receipt_protocol.py` + 7/7 adversarial benchmark; `v2/study_root.py` (DAG benchmark 24 valid / 164 invalid); per-family `executionBudget` and test-plan categories in `v2/stage_a.py` |
 
 ## The three core Open Exploration constraints (handbook)

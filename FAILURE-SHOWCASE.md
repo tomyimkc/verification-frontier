@@ -1,11 +1,37 @@
-> 🌐 简体中文 / Simplified Chinese: [`zh/失败展示.md`](失败展示.md)
-
 # Failure-case showcase
 
 > Per the handbook, **negative results are permitted** if the process and
 > insight are explainable. This package leads with its failures as **integrity
 > evidence**, not capability evidence. Nothing here was hidden or retried to
 # manufacture a cleaner number.
+
+## 0. Logic errors the verifiers catch (positive integrity evidence)
+
+Before the failures, the strongest piece of integrity evidence: **the verifiers
+work.** A logic-error catch-rate audit plants 16 known logic errors across every
+verifier tier and records whether each was caught. The verifiers **are** the
+logic-error detectors — a dimension mismatch *is* a logic error, a non-equivalent
+expression *is* a logic error, a `sorry`/`admit` placeholder *is* a logic error.
+This is instrument evidence (the verifiers are real and fail-closed), **not** a
+model-capability claim.
+
+- **Bound artifact:** `v2/artifacts/logic-error-catch-rate.json` (SHA-256 `eaa5d302…`)
+- **Verify:** `python3 v2/build_logic_error_audit.py --check` (needs `sympy`; use `.venv/bin/python`)
+- **Result:** **16/16 caught = 100% catch-rate**, 0 misses.
+
+| Tier | Planted | Caught | Examples of logic errors caught |
+|---|---:|---:|---|
+| SI dimension+value | 8 | 8 | `9.8 m/s²` where `9.8 m/s` meant (dimension mismatch); `8.0 m/s` where `9.8 m/s` meant (value out of tolerance); `5 kg` for `5 N`; `12 W` for `12 J` |
+| SymPy equivalence | 6 | 6 | `x²+2x+2` for `(x+1)²` (not equivalent); `(x−1)²` for `(x+1)²` (sign error); `2x+1` (missing term); `x³+1` (wrong degree) |
+| Lean proof-placeholder | 2 | 2 | `sorry` and `admit` placeholders rejected **before** any coverage abstention |
+| **Total** | **16** | **16** | **catchRate = 1.0** |
+
+- **Signal type:** positive instrument evidence + stable negative (the verifiers
+  reject every planted logic error, and the rejection is byte-stable under the
+  canonical-bytes check).
+- **Scope it does NOT claim:** this is a *planted*-error catch-rate. It does not
+  say what fraction of an unseen LLM's logic errors are in-scope — that is the
+  open research question the human-gated frontier expansion is built to answer.
 
 ## 1. Retained malformed JSON response (Stage A)
 
