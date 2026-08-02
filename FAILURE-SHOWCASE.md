@@ -103,4 +103,66 @@ model-capability claim.
 - **Signal type:** counterexample + justified problem revision (the instrument
   was flawed; the flaw is disclosed rather than papered over).
 
+## 6. Ill-posedness recognition (the failure mode this package targets)
+
+The 2025–2026 literature documents that LLMs hallucinate solutions to ill-posed
+problems instead of flagging them (see [`RESEARCH-POSITION.md`](RESEARCH-POSITION.md)).
+This section shows the concrete shape of that failure and what the deterministic
+detector does instead.
+
+### What LLMs do (the documented failure mode)
+
+Confronted with a *contradictory* specification — one where the premises cannot
+all hold — an LLM typically picks one branch, silently drops the contradicting
+constraint, and emits a confident, well-formed "answer." The contradiction is
+never named; the output looks like a normal solution. Three recurring shapes:
+
+- **Unit contradiction.** A free-fall problem states the answer must be a
+  velocity in `m/s`, but the model's derivation yields an acceleration and it
+  writes `9.8 m/s²` as "the velocity." Two physically incompatible quantities are
+  treated as interchangeable.
+- **Sign contradiction.** A reference specifies downward as negative
+  (`−9.8 m/s²`); the model both *asserts* the downward-negative convention and
+  *reports* `+9.8 m/s²`, papering over the sign flip.
+- **Algebraic contradiction.** Asked to expand `(x+1)²`, the model writes
+  `x²−2x+1` — an expression consistent with `(x−1)²`, not with its own stated
+  premise. It reads as a clean expansion.
+
+### A concrete example (planted, then caught)
+
+The catch-rate audit plants exactly these contradictions and records the
+verdict. One row from `v2/artifacts/logic-error-catch-rate.json`:
+
+```
+error_id:    sym-eq-05
+error_type:  sign_error            # the premise (x+1)^2 contradicts the candidate
+reference:   (x+1)^2
+candidate:   (x-1)^2               # model "expanded" the wrong sign
+expected:    rejected
+observed:    rejected              reason_code: not_symbolically_equivalent
+caught:      true
+```
+
+A model that does not recognize ill-posedness would return `x²−2x+1` and move
+on. The deterministic SymPy check computes `simplify((x-1)^2 - (x+1)^2)` — it
+does **not** reduce to zero — and emits `rejected`. The contradiction is
+*recognized and named*, not silently resolved. The SI tier does the same for
+unit/value/sign contradictions (`9.8 m/s²` for `9.8 m/s`, `8.0 m/s` for
+`9.8 m/s`, `−9.8 m/s²` for `9.8 m/s²`); the Lean tier does the same for
+`sorry`/`admit` placeholders that assert a proof by fiat.
+
+### What this is, and is not
+
+- **Bound artifact:** `v2/artifacts/logic-error-catch-rate.json` (SHA-256
+  `eaa5d302…`); **67/67 caught = 100 % catch-rate** across SI 30/30, SymPy
+  26/26, Lean-placeholder 11/11.
+- **Verify:** `python3 v2/build_logic_error_audit.py --check` (needs `sympy`;
+  use `.venv/bin/python`).
+- **Signal type:** positive instrument evidence + stable negative (the detector
+  recognizes every planted contradiction, and the verdict is byte-stable).
+- **Scope it does NOT claim:** this is a *planted*-contradiction catch-rate on
+  specific ill-posedness categories. It does **not** claim any model has learned
+  to recognize unsolvability — that remains the open problem in
+  [`RESEARCH-POSITION.md`](RESEARCH-POSITION.md) §1.
+
 `candidateOnly:true`; `canClaimAGI:false`.

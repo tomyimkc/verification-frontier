@@ -36,6 +36,8 @@ REQUIRED = {
     "ARCHITECTURE.md",
     "FAILURE-SHOWCASE.md",
     "REPRODUCIBILITY-QUICKSTART.md",
+    "RESEARCH-POSITION.md",
+    "CORE-CONSTRAINTS-COMPLIANCE.md",
     "LICENSE",
     "demo.py",
     "units.py",
@@ -97,6 +99,9 @@ REQUIRED = {
     "v2/self_correct.py",
     "v2/error_rag.py",
     "v2/verify_provenance.py",
+    "v2/verify_ill_posed.py",
+    "v2/ill_posed_tasks.py",
+    "v2/build_ill_posed_audit.py",
     "v2/benchmark_study_root.py",
     "v2/simulate_scorer.py",
     "v2/receipt_protocol.py",
@@ -120,6 +125,9 @@ REQUIRED = {
     "v2/test_baseline_comparison.py",
     "v2/test_self_correct.py",
     "v2/test_error_rag.py",
+    "v2/test_verify_ill_posed.py",
+    "v2/test_ill_posed_tasks.py",
+    "v2/test_ill_posed_audit.py",
     "v2/test_run_model_attempts.py",
     "v2/test_receipt_protocol.py",
     "v2/test_score_confirmatory.py",
@@ -148,6 +156,8 @@ REQUIRED = {
     "v2/artifacts/baseline-comparison.json",
     "v2/artifacts/self-correction-audit.json",
     "v2/artifacts/error-rag-audit.json",
+    "v2/artifacts/ill-posed-tasks.json",
+    "v2/artifacts/ill-posed-audit.json",
 }
 
 
