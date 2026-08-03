@@ -42,7 +42,7 @@ SHOWCASE = [
         ),
         "verifier": "si",
         "reference": "9.8 m/s",
-        "hint": "模型常输出 `9.8 m/s^2`（加速度）而非 `9.8 m/s`（速度）",
+        "hint": "⚠️ 这是一个**故意设计的提示**，旨在触发量纲错误。我们有意只问「final velocity」而不提醒单位——小模型常混淆 `m/s²`（加速度）与 `m/s`（速度）。",
     },
     {
         "id": "dim-energy",
@@ -53,7 +53,7 @@ SHOWCASE = [
         ),
         "verifier": "si",
         "reference": "9 J",
-        "hint": "模型常输出 `N`（力）而非 `J`（能量）",
+        "hint": "⚠️ **故意设计的提示**：不提示「焦耳」，让模型自行选择单位——它经常输出 `N`（力）而非 `J`（能量）。",
     },
     {
         "id": "sym-expand",
@@ -61,7 +61,7 @@ SHOWCASE = [
         "prompt": "Expand (x+1)^2. Show the result.",
         "verifier": "symbolic",
         "reference": "(x+1)^2",
-        "hint": "模型可能写错：符号翻转、漏项、多个常数",
+        "hint": "⚠️ **故意设计的提示**：要求展开但不给步骤提示——小模型在高温采样下常犯符号翻转、漏项或常数错误。",
     },
     {
         "id": "ill-contradictory",
@@ -69,7 +69,7 @@ SHOWCASE = [
         "prompt": "Solve the system: x + y = 3, x + y = 5.\nShow your work.",
         "verifier": "ill_posed",
         "reference": "",
-        "hint": "x+y 不可能同时 = 3 和 = 5。模型可能幻觉一个解。",
+        "hint": "⚠️ **故意设计的提示**：给出一个矛盾方程组。正确的回答是「无解」，但 LLM 通常会幻觉出一个「答案」。这正是 2025 文献报告的「LLM 无法识别不可解性」。",
     },
     {
         "id": "ill-circular",
@@ -77,7 +77,7 @@ SHOWCASE = [
         "prompt": "A depends on B. B depends on A. Find the value of A.\nShow your work.",
         "verifier": "ill_posed",
         "reference": "",
-        "hint": "循环依赖无法求解。模型可能编造答案。",
+        "hint": "⚠️ **故意设计的提示**：循环依赖（A→B→A）在数学上不可解。LLM 通常不识别循环性，而是编造一个答案。",
     },
 ]
 
@@ -149,11 +149,22 @@ def build_app():
 
             with gr.Tab("② 真实 LLM / Live LLM"):
                 gr.Markdown(
-                    "## ② 真实 LLM 错误展示\n\n"
-                    "**真实本地 LLM**（Qwen2.5-0.5B，CPU）在页面中运行。\n"
-                    "点击「生成」→ 等 ~5 秒 → 看回答 → 点击「验证」\n\n"
-                    "每次调用按会话记录（底部可查看本会话日志）。\n"
-                    "Every call is logged per-session (see bottom)."
+                    "## ② 真实 LLM 错误展示 / Live LLM Error Showcase\n\n"
+                    "> **⚠️ 实验设计说明 / Experimental Design Note**\n>\n"
+                    "> 以下提示是**故意设计的**，旨在触发 LLM 的特定逻辑错误。\n"
+                    "> 我们有意省略单位提示、给出矛盾系统、或要求小模型做它容易出错的计算。\n"
+                    "> 这不是为了证明 LLM「笨」，而是为了**演示确定性验证器如何捕获这些错误**。\n"
+                    ">\n"
+                    "> The prompts below are **deliberately crafted** to trigger specific logic errors.\n"
+                    "> We intentionally omit unit hints, present contradictory systems, or ask a\n"
+                    "> small model to do calculations it tends to get wrong. The point is NOT to\n"
+                    "> show the LLM is dumb — it's to **demonstrate how the deterministic verifier\n"
+                    "> catches the errors**.\n\n"
+                    "**真实本地 LLM**（Qwen2.5-0.5B，~500M 参数，CPU 推理）\n\n"
+                    "点击「🤖 生成」→ 等 ~5 秒 → 看完整回答 → 点击「🔍 验证」\n\n"
+                    "每次调用按会话记录（底部可查看本会话日志和全部日志）。\n"
+                    "Every call is logged per-session (see bottom: Session Log + Global Log).\n"
+                    "The **full response text** is captured in the log."
                 )
 
                 # Status + log row
