@@ -33,6 +33,9 @@ fi
   v2.test_baseline_comparison \
   v2.test_self_correct \
   v2.test_error_rag \
+  v2.test_ill_posed_tasks \
+  v2.test_ill_posed_audit \
+  v2.test_run_full_evidence \
   v2.test_receipt_protocol \
   v2.test_run_model_attempts \
   v2.test_score_confirmatory \
@@ -53,6 +56,14 @@ fi
 "$PYTHON" -c "from v2.self_correct import write_audit; write_audit()"
 "$PYTHON" -c "from v2.self_correct import write_audit; import json,hashlib; a=json.load(open('v2/artifacts/self-correction-audit.json')); print('SELF-CORRECT AUDIT:', a['status'], '(caught='+str(a['totals']['caughtWithoutSelfCorrection'])+'/errorReduction='+str(a['totals']['errorReductionRate'])+')')" 2>/dev/null || echo "SELF-CORRECT AUDIT: skip (build inline)"
 "$PYTHON" -c "from v2.error_rag import run_error_rag_audit; run_error_rag_audit()" 2>/dev/null || echo "ERROR-RAG AUDIT: skip (build inline)"
+# Round-2 (复赛) exploration log: single command that runs ALL evidence
+# modules in sequence and writes execution-log.jsonl + execution-summary.json.
+# The build exits 0 whenever the artifacts are written (a module's honest
+# status=FAIL, e.g. the ill-posedness detector abstaining on well-posed
+# controls, is recorded evidence, not a build error). The subsequent --check
+# verifies the log is current. Use --strict to fail the build on any non-PASS.
+"$PYTHON" v2/run_full_evidence.py
+"$PYTHON" v2/run_full_evidence.py --check
 "$PYTHON" v2/build_receipt_rehearsal.py
 "$PYTHON" v2/benchmark_receipt_protocol.py
 "$PYTHON" v2/protocol_twin.py

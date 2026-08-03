@@ -38,6 +38,7 @@ REQUIRED = {
     "REPRODUCIBILITY-QUICKSTART.md",
     "RESEARCH-POSITION.md",
     "CORE-CONSTRAINTS-COMPLIANCE.md",
+    "ROUND2-README.md",
     "LICENSE",
     "demo.py",
     "units.py",
@@ -58,6 +59,7 @@ REQUIRED = {
     "submission/submission-en.md",
     "submission/submission-metadata.json",
     "submission/problem-definition-zh.md",
+    "submission/problem-definition-zh-final.md",
     "submission/pdf_contract.py",
     "submission/build_pdfs.py",
     "submission/GOAI-AI4R-Open-Exploration-ZH.pdf",
@@ -102,6 +104,9 @@ REQUIRED = {
     "v2/verify_ill_posed.py",
     "v2/ill_posed_tasks.py",
     "v2/build_ill_posed_audit.py",
+    "v2/run_full_evidence.py",
+    "v2/export_chart_data.py",
+    "v2/verify_well_posed.py",
     "v2/benchmark_study_root.py",
     "v2/simulate_scorer.py",
     "v2/receipt_protocol.py",
@@ -128,6 +133,9 @@ REQUIRED = {
     "v2/test_verify_ill_posed.py",
     "v2/test_ill_posed_tasks.py",
     "v2/test_ill_posed_audit.py",
+    "v2/test_run_full_evidence.py",
+    "v2/test_export_chart_data.py",
+    "v2/test_verify_well_posed.py",
     "v2/test_run_model_attempts.py",
     "v2/test_receipt_protocol.py",
     "v2/test_score_confirmatory.py",
@@ -158,6 +166,7 @@ REQUIRED = {
     "v2/artifacts/error-rag-audit.json",
     "v2/artifacts/ill-posed-tasks.json",
     "v2/artifacts/ill-posed-audit.json",
+    "v2/artifacts/chart-data.json",
 }
 
 
