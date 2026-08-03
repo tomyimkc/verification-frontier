@@ -436,15 +436,23 @@ def check_step(step_text: str, index: int = 0) -> StepVerdict:
     )
 
 
-def check_steps(steps: list[str]) -> list[StepVerdict]:
+def check_steps(steps: list) -> list[StepVerdict]:
     """Check a list of parsed CoT steps. Returns one StepVerdict per step.
 
-    Empty input returns an empty list (callers should treat that as "nothing
-    to check" — the app.py UI shows a friendly placeholder in that case).
+    Accepts either strings or dicts with a 'raw_text' key (from _parse_cot_steps).
+    Empty input returns an empty list.
     """
     if not steps:
         return []
-    return [check_step(s, index=i) for i, s in enumerate(steps)]
+    texts = []
+    for s in steps:
+        if isinstance(s, dict):
+            texts.append(s.get("raw_text", s.get("text", str(s))))
+        elif isinstance(s, str):
+            texts.append(s)
+        else:
+            texts.append(str(s))
+    return [check_step(t, index=i) for i, t in enumerate(texts)]
 
 
 def summarize(verdicts: list[StepVerdict]) -> dict:
