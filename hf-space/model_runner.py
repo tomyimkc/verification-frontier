@@ -22,7 +22,7 @@ _GLOBAL_LOG: list[dict] = []
 _MAX_LOG = 100
 
 
-def _api_call(messages: list[dict], max_tokens: int = 400, temperature: float = 0.7) -> str:
+def _api_call(messages: list[dict], max_tokens: int = 1000, temperature: float = 0.7) -> str:
     """Call the HF router API."""
     try:
         resp = requests.post(
@@ -45,7 +45,7 @@ def _api_call(messages: list[dict], max_tokens: int = 400, temperature: float = 
 
 
 def generate_response(prompt: str, session_id: str = "unknown",
-                      max_new_tokens: int = 400, temperature: float = 0.7) -> str:
+                      max_new_tokens: int = 1000, temperature: float = 0.7) -> str:
     t0 = time.time()
     call_id = len(_GLOBAL_LOG) + 1
     resp = _api_call([{"role": "user", "content": prompt}], max_new_tokens, temperature)
@@ -71,14 +71,14 @@ def self_judge(original_prompt: str, llm_response: str, session_id: str = "unkno
     )
     t0 = time.time()
     call_id = len(_GLOBAL_LOG) + 1
-    resp = _api_call([{"role": "user", "content": judge_prompt}], max_tokens=200, temperature=0.2)
+    resp = _api_call([{"role": "user", "content": judge_prompt}], max_tokens=1000, temperature=0.2)
     elapsed = round(time.time() - t0, 2)
     ok = not resp.startswith("[")
     _log(call_id, session_id, "self_judge", judge_prompt, resp, elapsed, ok)
     return resp
 
 
-def generate_with_steps(prompt, session_id, max_new_tokens=400, temperature=0.7):
+def generate_with_steps(prompt, session_id, max_new_tokens=1000, temperature=0.7):
     resp = generate_response(prompt, session_id, max_new_tokens, temperature)
     steps = _parse_cot_steps(resp)
     return {"response": resp, "steps": steps}

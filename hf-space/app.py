@@ -363,7 +363,7 @@ def _build_showcase_card(item: dict, session_id: gr.State) -> None:
 
         def _gen(prompt, sid):
             result = generate_with_steps(
-                prompt, session_id=sid, max_new_tokens=220, temperature=0.7)
+                prompt, session_id=sid, max_new_tokens=1000, temperature=0.7)
             resp = result["response"]
             return resp, resp, result["steps"]
         gen_btn.click(
