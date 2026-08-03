@@ -93,7 +93,7 @@ SHOWCASE = [
             "Show work and give the final number."
         ),
         "verifier": "si",
-        "reference": "1.6667",
+        "reference": "1.6667 s",
         "hint": "⚠️ **挑战性问题**：γ = 1/√(1-0.64) = 1/0.6 = 5/3 ≈ 1.6667。模型可能在 √(0.36) 上出错。",
     },
     {
@@ -117,7 +117,7 @@ SHOWCASE = [
             "What is the magnitude of the induced EMF? Show work."
         ),
         "verifier": "si",
-        "reference": "0.04 Wb",
+        "reference": "0.04 V",
         "hint": "⚠️ **挑战性问题**：EMF = ΔΦ/Δt = (B×A)/Δt = (2×0.01)/0.5 = 0.04V。模型可能算错面积或时间。",
     },
     {
@@ -151,6 +151,9 @@ def _strip_latex(text: str) -> str:
     text = text.replace("\\text{", " ").replace("\\,", " ")
     text = text.replace("\\cdot", "*").replace("\\frac", "")
     text = text.replace("\\times", "*").replace("\\div", "/")
+    text = text.replace("\\approx", "=").replace("\\gamma", "")
+    text = text.replace("\\varepsilon", "").replace("\\Phi", "Phi")
+    text = text.replace("\\Delta", "").replace("\\left", "").replace("\\right", "")
     text = text.replace("{", "").replace("}", "")
     text = text.replace("\\\\", "\\")
     return text
@@ -201,12 +204,29 @@ def _extract(text: str) -> str:
             unit = m.group(2).replace("²", "^2")
             return f"{m.group(1)} {unit}"
 
+    # Issue 1 fix: dimensionless number (e.g. Lorentz factor γ ≈ 1.667)
+    for line in reversed(lines[-5:]):
+        m = re.search(r"=\s*([-+]?\d+\.?\d*(?:[eE][+-]?\d+)?)\s*$", line)
+        if m:
+            return m.group(1)
+
+    # Issue 2 fix: bare number at end of a line (after LaTeX strip)
+    for line in reversed(lines[-5:]):
+        clean = _strip_latex(line).strip().rstrip(".")
+        m = re.search(r"([-+]?\d+\.?\d*)\s*$", clean)
+        if m and len(m.group(1)) > 0:
+            # Only return if the line is short (likely just the answer)
+            if len(clean) < 30:
+                return m.group(1)
+
     # Look for symbolic expression
     for line in reversed(lines[-5:]):
-        clean = line.replace(" ", "").replace("²", "^2")
+        clean = _strip_latex(line).replace(" ", "").replace("²", "^2")
         if re.search(r"[a-z]\^?2|[a-z]\*\*2", clean, re.I):
             clean = re.sub(r"^(.*?[:=])", "", clean)
-            return clean[:40]
+            clean = clean.replace("\\", "")
+            if clean and clean[0] != "(":
+                return clean[:40]
 
     # Fallback: last non-empty line
     last = lines[-1] if lines else cleaned.strip()
@@ -218,22 +238,22 @@ def _extract(text: str) -> str:
 
 
 def _verify(vtype: str, candidate: str, reference: str, full_text: str) -> dict:
-    """Route to the right deterministic verifier for Step 4.
-
-    The ill-posed verifier inspects the full response text (it looks for a
-    contradictory system, missing constraint, etc.) and needs no candidate.
-    The SI and symbolic verifiers check the extracted candidate against the
-    reference. Empty candidate -> a friendly "generate first" abstention.
-    """
+    """Route to the right deterministic verifier for Step 4."""
     if vtype == "ill_posed":
-        return verify_ill_posed(full_text).to_dict()
+        # Issue 4+5 fix: strip LaTeX from full text before ill-posed detection
+        clean_text = _strip_latex(full_text)
+        return verify_ill_posed(clean_text).to_dict()
     if not candidate or not candidate.strip():
         return {"verdict": "abstain", "reasonCode": "no_answer",
                 "reason": "Click Generate first."}
+    # Issue 2 fix: strip LaTeX from candidate before any verifier
+    candidate = _strip_latex(candidate).strip()
     if vtype == "si":
         return verify_si(candidate, reference)
     if vtype == "symbolic":
-        return verify_symbolic(candidate, reference)
+        # Also clean reference
+        ref_clean = _strip_latex(reference).strip()
+        return verify_symbolic(candidate, ref_clean)
     return {"verdict": "abstain", "reason": "unknown verifier"}
 
 

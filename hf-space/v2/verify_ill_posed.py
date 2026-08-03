@@ -88,17 +88,22 @@ class IllPosedResult:
         }
 
 
-_EQ_RE = re.compile(r"([a-zA-Z][a-zA-Z0-9_\*\+\-\/\(\)\^\s]*?)\s*=\s*([a-zA-Z0-9_\*\+\-\/\(\)\^\s\.\-]+)")
+_EQ_RE = re.compile(r"(\d*[a-zA-Z][a-zA-Z0-9_\*\+\-\/\(\)\^\s]*?)\s*=\s*([a-zA-Z0-9_\*\+\-\/\(\)\^\s\.\-]+)")
 _SOLVE_FOR_RE = re.compile(r"solve\s+for\s+(\w+)", re.IGNORECASE)
-_DEPENDS_RE = re.compile(r"(\w+)\s*(?:depends\s+on|requires?|needs?)\s*(\w+)", re.IGNORECASE)
+# Match "A depends on B", "Revenue depends on Price", "X requires Y" — capture multi-word entity names
+_DEPENDS_RE = re.compile(r"(\w+(?:\s+\w+)?)\s*(?:depends\s+on|requires?|needs?)\s*(\w+(?:\s+\w+)?)", re.IGNORECASE)
 
 
 def _extract_equations(text: str) -> list[str]:
-    """Extract 'lhs - rhs' expressions from text containing '=' signs."""
+    """Extract 'lhs - rhs' expressions from text containing '=' signs.
+    Normalizes coefficients like '3x' → '3*x' before parsing."""
     eqs = []
     for m in _EQ_RE.finditer(text):
         lhs = m.group(1).strip()
         rhs = m.group(2).strip()
+        # Normalize implicit multiplication: "3x" → "3*x", "2y" → "2*y"
+        lhs = re.sub(r"(\d)([a-zA-Z])", r"\1*\2", lhs)
+        rhs = re.sub(r"(\d)([a-zA-Z])", r"\1*\2", rhs)
         expr = f"({lhs}) - ({rhs})"
         try:
             parsed = _safe_sympy_expression(expr)

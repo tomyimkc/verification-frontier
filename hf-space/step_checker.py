@@ -128,8 +128,17 @@ class StepVerdict:
 
 
 def _clean_step_text(text: str) -> str:
-    """Strip a leading "N." numbering and surrounding whitespace."""
+    """Strip a leading "N." numbering, LaTeX markup, and surrounding whitespace."""
     s = (text or "").strip()
+    # Strip LaTeX markup so equations like \[ 3 \, \text{kg} \cdot 4 \, \text{m/s} = 12 \] become parseable
+    s = s.replace("\\[", "").replace("\\]", "")
+    s = s.replace("\\boxed{", "").replace("\\(", "").replace("\\)", "")
+    s = s.replace("\\text{", " ").replace("\\,", " ")
+    s = s.replace("\\cdot", "*").replace("\\times", "*")
+    s = s.replace("\\frac", "").replace("\\approx", "=")
+    s = s.replace("\\left", "").replace("\\right", "")
+    s = s.replace("{", "").replace("}", "")
+    s = s.replace("\\\\", "")
     return _LEADING_NUM.sub("", s).strip()
 
 
