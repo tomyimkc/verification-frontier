@@ -1,2 +1,4 @@
 gradio>=5.49,<6
 sympy
+torch>=2.0
+transformers>=4.40
