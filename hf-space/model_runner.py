@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Lazy local-model runner for the HF Space demo.
 
-Loads Qwen2.5-0.5B-Instruct on first use (CPU, float32, ~2GB RAM).
-Supports: generate_response() for answering, and self_judge() for the
-same model to critique its own output.
-Per-session call logging with full response capture.
+Loads Qwen2.5-3B-Instruct on first use (CPU, float32, ~6GB RAM). The free
+HF Space "CPU basic" tier has 16GB RAM, so the 3B model fits with headroom.
+Supports: generate_response() for answering, self_judge() for the same model
+to critique its own output, and generate_with_steps() for step-level CoT
+verification. Per-session call logging with full response capture.
 """
 from __future__ import annotations
 
 import os
+import re
 import sys
 import time
 import json
@@ -20,7 +22,7 @@ logger = logging.getLogger(__name__)
 _MODEL = None
 _TOKENIZER = None
 _LOAD_ATTEMPTED = False
-_MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
+_MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
 
 _GLOBAL_LOG: list[dict] = []
 _MAX_LOG = 100
@@ -77,6 +79,66 @@ def generate_response(prompt: str, session_id: str = "unknown",
     ok = not resp.startswith("[")
     _log(call_id, session_id, "generate", prompt, resp, elapsed, ok)
     return resp
+
+
+# A numbered step such as "1.", "Step 2:", "(3)", or a markdown "1)".
+_STEP_RE = re.compile(
+    r"^\s*(?:step\s*)?[\(\[]?\s*(\d{1,2})\s*[\)\].]?:?\s+(.+)",
+    re.IGNORECASE,
+)
+
+
+def _parse_cot_steps(response: str) -> list[str]:
+    """Split a chain-of-thought response into a list of numbered steps.
+
+    Recognises common CoT markers: "1. ...", "Step 2: ...", "(3) ...", "1) ...".
+    When no numbered structure is present, falls back to splitting on blank-line
+    paragraph breaks (collapsing trivially short fragments). Always returns at
+    least the whole response as a single step if nothing else matches, so the
+    step checker always has at least one step to look at.
+    """
+    if not response or not response.strip():
+        return []
+    lines = response.splitlines()
+
+    # First pass: collect explicitly numbered lines, folding subsequent
+    # un-numbered continuation lines into the current step body.
+    steps: list[str] = []
+    current_idx: int | None = None
+    current_buf: list[str] = []
+    for line in lines:
+        m = _STEP_RE.match(line)
+        if m:
+            # Flush previous step.
+            if current_idx is not None:
+                steps.append("\n".join(current_buf).strip())
+            current_idx = int(m.group(1))
+            current_buf = [f"{current_idx}. {m.group(2).strip()}"]
+        elif current_idx is not None:
+            current_buf.append(line.rstrip())
+    if current_idx is not None:
+        steps.append("\n".join(current_buf).strip())
+
+    # Drop empty fragments and return if we found real numbered structure.
+    steps = [s for s in steps if s.strip()]
+    if steps:
+        return steps
+
+    # Fallback: split on blank-line paragraph breaks.
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", response.strip()) if p.strip()]
+    if paragraphs:
+        return paragraphs
+
+    # Final fallback: the whole response is one step.
+    return [response.strip()] if response.strip() else []
+
+
+def generate_with_steps(prompt: str, session_id: str,
+                        max_new_tokens: int = 200, temperature: float = 0.7) -> dict:
+    """Generate + return both the raw response AND a list of parsed steps."""
+    resp = generate_response(prompt, session_id, max_new_tokens, temperature)
+    steps = _parse_cot_steps(resp)
+    return {"response": resp, "steps": steps}
 
 
 def self_judge(original_prompt: str, llm_response: str,
