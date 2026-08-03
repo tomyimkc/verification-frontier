@@ -1,8 +1,6 @@
 # Verification Frontier — HF Space dependencies.
-# The demo loads Qwen2.5-3B-Instruct locally (CPU, float32). The 3B model
-# needs ~6 GB RAM at inference; the free HF Space "CPU basic" tier ships
-# 16 GB, so it fits with headroom for the gradio + sympy runtime.
+# Uses HF Inference API (router.huggingface.co) for Qwen2.5-7B-Instruct.
+# No local model loading — instant responses, zero CPU overhead.
 gradio>=5.49,<6
 sympy
-torch>=2.0
-transformers>=4.40
+requests

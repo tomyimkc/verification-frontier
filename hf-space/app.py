@@ -42,9 +42,10 @@ from step_checker import check_steps, summarize as summarize_steps
 INTRO = """
 # 🛡️ 验证边界 · Verification Frontier
 ### 安全捕获 LLM 科学推理中的逻辑错误
-> 真实本地 LLM (Qwen2.5-3B-Instruct) 生成回答 → **同一个 LLM 自我检查** →
-> **逐步 CoT 验证**（每一步检查算术平衡与单位一致性）→ **确定性验证器裁决**。
-> 评委可以看到：自我检查何时失败，逐步检查何时发现算术错误，确定性检查何时捕获概念性错误。
+> **真实云端 LLM**（Qwen2.5-7B-Instruct，via HF Inference API）生成回答 →
+> **同一个 LLM 自我检查** → **逐步 CoT 验证**（每一步检查算术与单位）→
+> **确定性验证器裁决**。
+> 评委可以看到：7B 模型在难题上偶尔出错，自我检查有时漏判，确定性验证器始终捕获。
 **GOAI 2026 · AI for Research · Open Exploration**
 """
 
@@ -61,50 +62,84 @@ FOOTER = (
 # verifiers; the ill-posed verifier needs no reference (it inspects the text).
 SHOWCASE = [
     {
-        "id": "inequality",
-        "title": "➗ 不等式方向 / Inequality Direction",
-        "prompt": "Solve for x: -2x > 6. Show your steps.",
-        "verifier": "ill_posed",
-        "reference": "",
-        "hint": "⚠️ **故意设计的提示**：两边除以负数时必须翻转不等号。模型经常忘记翻转。",
-    },
-    {
-        "id": "projectile",
-        "title": "🏀 抛体运动 / Projectile Motion",
+        "id": "momentum",
+        "title": "🎱 动量守恒 / Conservation of Momentum",
         "prompt": (
-            "A ball is thrown horizontally at 10 m/s from a 20m cliff. "
-            "How long until it lands? g=9.8 m/s^2. Show your work."
+            "A 3 kg cart moving at 4 m/s collides with a stationary 2 kg cart. "
+            "After collision they stick together. What is the final velocity? "
+            "Show work and give the final answer with units on the last line."
         ),
         "verifier": "si",
-        "reference": "2.02 s",
-        "hint": "⚠️ **故意设计的提示**：需要用 h=½gt² 求时间。模型常用错公式。",
+        "reference": "2.4 m/s",
+        "hint": "⚠️ **挑战性问题**：动量守恒 p_before = p_after。正确答案 = 12/5 = 2.4 m/s。7B 在高温下可能算错中间步骤。",
     },
     {
-        "id": "unit-convert",
-        "title": "🔄 单位换算 / Unit Conversion",
-        "prompt": "Convert 72 km/h to m/s. Show your work.",
-        "verifier": "si",
-        "reference": "20 m/s",
-        "hint": "⚠️ **故意设计的提示**：72 km/h ÷ 3.6 = 20 m/s。模型常除以或乘以错误的因子。",
-    },
-    {
-        "id": "power",
-        "title": "⚡ 电功率 / Electrical Power",
+        "id": "thermo",
+        "title": "🔥 热力学 / Thermodynamics",
         "prompt": (
-            "A 10 ohm resistor has 2A current. What is the power dissipated? "
-            "Show your work."
+            "How much energy is needed to heat 500g of water from 20°C to 80°C? "
+            "Specific heat of water is 4.18 J/(g·°C). "
+            "Give the final answer in joules on the last line."
         ),
         "verifier": "si",
-        "reference": "40 W",
-        "hint": "⚠️ **故意设计的提示**：P=I²R=4×10=40W。模型常用 P=IR（少了平方）或 P=V²/R（电压未知）。",
+        "reference": "125400 J",
+        "hint": "⚠️ **挑战性问题**：Q = mcΔT = 500 × 4.18 × 60 = 125400 J。模型可能算错 500×4.18×60 或用错温度差。",
+    },
+    {
+        "id": "lorentz",
+        "title": "🚀 相对论 / Relativity",
+        "prompt": (
+            "A particle moves at 0.8c. What is its Lorentz factor γ? "
+            "Show work and give the final number."
+        ),
+        "verifier": "si",
+        "reference": "1.6667",
+        "hint": "⚠️ **挑战性问题**：γ = 1/√(1-0.64) = 1/0.6 = 5/3 ≈ 1.6667。模型可能在 √(0.36) 上出错。",
+    },
+    {
+        "id": "opt-deriv",
+        "title": "📈 优化 / Optimization Derivative",
+        "prompt": (
+            "Find the minimum of f(x) = x^3 - 6x^2 + 9x + 1. "
+            "Take the derivative, find critical points, and determine which is the minimum. "
+            "Show all steps."
+        ),
+        "verifier": "symbolic",
+        "reference": "3*x^2-12*x+9",
+        "hint": "⚠️ **挑战性问题**：f'(x) = 3x²-12x+9 = 0 → x=1 或 x=3。x=3 是最小值。模型可能搞混最大/最小。",
+    },
+    {
+        "id": "faraday",
+        "title": "⚡ 电磁感应 / Faraday's Law",
+        "prompt": (
+            "A square loop of wire (0.1m × 0.1m) is in a magnetic field B = 2T. "
+            "The field decreases to 0T in 0.5 seconds. "
+            "What is the magnitude of the induced EMF? Show work."
+        ),
+        "verifier": "si",
+        "reference": "0.04 Wb",
+        "hint": "⚠️ **挑战性问题**：EMF = ΔΦ/Δt = (B×A)/Δt = (2×0.01)/0.5 = 0.04V。模型可能算错面积或时间。",
     },
     {
         "id": "contradictory",
-        "title": "🔍 矛盾方程组 / Contradictory System",
-        "prompt": "Solve the system: x + y = 3, x + y = 5. Show your work.",
+        "title": "🔍 不可解：伪装的矛盾系统 / Disguised Contradictory",
+        "prompt": (
+            "Solve for x and y: 3x + 2y = 12, 6x + 4y = 25. Show your work."
+        ),
         "verifier": "ill_posed",
         "reference": "",
-        "hint": "⚠️ **故意设计的提示**：矛盾方程组无解。模型常幻觉一个答案。",
+        "hint": "⚠️ **挑战性问题**：第二个方程是第一个的 2 倍但常数不对（25≠24）。系统矛盾。7B 可能不识别而幻觉一个解。",
+    },
+    {
+        "id": "circular-opt",
+        "title": "🔍 不可解：循环优化 / Circular Optimization",
+        "prompt": (
+            "Maximize profit where: Revenue depends on Price, Price depends on Demand, "
+            "Demand depends on Revenue. Find the optimal Price. Show your work."
+        ),
+        "verifier": "ill_posed",
+        "reference": "",
+        "hint": "⚠️ **挑战性问题**：循环依赖 R→P→D→R。无法在不打破循环的情况下求解。7B 可能不识别循环性。",
     },
 ]
 

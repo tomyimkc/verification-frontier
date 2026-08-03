@@ -1,173 +1,118 @@
 #!/usr/bin/env python3
-"""Lazy local-model runner for the HF Space demo.
+"""HF Inference API model runner — calls Qwen2.5-7B-Instruct via HF router.
 
-Loads Qwen2.5-3B-Instruct on first use (CPU, float32, ~6GB RAM). The free
-HF Space "CPU basic" tier has 16GB RAM, so the 3B model fits with headroom.
-Supports: generate_response() for answering, self_judge() for the same model
-to critique its own output, and generate_with_steps() for step-level CoT
-verification. Per-session call logging with full response capture.
+No local model loading — instant responses, smarter model, zero CPU overhead.
+Uses HF_TOKEN from the Space environment (auto-injected for Space owner).
 """
 from __future__ import annotations
 
 import os
-import re
 import sys
 import time
-import json
-import uuid
 import logging
+import requests
 
 logger = logging.getLogger(__name__)
 
-_MODEL = None
-_TOKENIZER = None
-_LOAD_ATTEMPTED = False
-_MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
+_MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
+_ROUTER_URL = "https://router.huggingface.co/v1/chat/completions"
+_TOKEN = os.environ.get("HF_TOKEN", "")
 
 _GLOBAL_LOG: list[dict] = []
 _MAX_LOG = 100
 
 
-def _load_model():
-    global _MODEL, _TOKENIZER, _LOAD_ATTEMPTED
-    if _LOAD_ATTEMPTED:
-        return _MODEL, _TOKENIZER
-    _LOAD_ATTEMPTED = True
+def _api_call(messages: list[dict], max_tokens: int = 400, temperature: float = 0.7) -> str:
+    """Call the HF router API."""
     try:
-        import torch
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-        logger.info("Loading %s...", _MODEL_ID)
-        _TOKENIZER = AutoTokenizer.from_pretrained(_MODEL_ID)
-        _MODEL = AutoModelForCausalLM.from_pretrained(_MODEL_ID)
-        logger.info("Loaded: %dM params", sum(p.numel() for p in _MODEL.parameters()) // 1_000_000)
+        resp = requests.post(
+            _ROUTER_URL,
+            headers={"Authorization": f"Bearer {_TOKEN}"},
+            json={
+                "model": _MODEL_ID,
+                "messages": messages,
+                "max_tokens": max_tokens,
+                "temperature": temperature,
+            },
+            timeout=60,
+        )
+        if resp.status_code == 200:
+            return resp.json()["choices"][0]["message"]["content"].strip()
+        else:
+            return f"[API error {resp.status_code}: {resp.text[:100]}]"
     except Exception as e:
-        logger.warning("Load failed: %s", e)
-    return _MODEL, _TOKENIZER
-
-
-def _raw_generate(prompt: str, max_new_tokens: int = 200, temperature: float = 0.8) -> str:
-    """Internal: generate raw text from the model."""
-    model, tok = _load_model()
-    if model is None or tok is None:
-        return "[model not loaded]"
-    try:
-        import torch
-        messages = [{"role": "user", "content": prompt}]
-        text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = tok(text, return_tensors="pt")
-        with torch.no_grad():
-            out = model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                temperature=temperature,
-                do_sample=True,
-                top_p=0.9,
-                pad_token_id=tok.eos_token_id,
-            )
-        return tok.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True).strip()
-    except Exception as e:
-        return f"[error: {e}]"
+        return f"[API error: {e}]"
 
 
 def generate_response(prompt: str, session_id: str = "unknown",
-                      max_new_tokens: int = 200, temperature: float = 0.8) -> str:
-    """Generate a response from the local model. Logs the call."""
+                      max_new_tokens: int = 400, temperature: float = 0.7) -> str:
     t0 = time.time()
     call_id = len(_GLOBAL_LOG) + 1
-    resp = _raw_generate(prompt, max_new_tokens, temperature)
+    resp = _api_call([{"role": "user", "content": prompt}], max_new_tokens, temperature)
     elapsed = round(time.time() - t0, 2)
     ok = not resp.startswith("[")
     _log(call_id, session_id, "generate", prompt, resp, elapsed, ok)
     return resp
 
 
-# A numbered step such as "1.", "Step 2:", "(3)", or a markdown "1)".
-_STEP_RE = re.compile(
-    r"^\s*(?:step\s*)?[\(\[]?\s*(\d{1,2})\s*[\)\].]?:?\s+(.+)",
-    re.IGNORECASE,
-)
-
-
-def _parse_cot_steps(response: str) -> list[str]:
-    """Split a chain-of-thought response into a list of numbered steps.
-
-    Recognises common CoT markers: "1. ...", "Step 2: ...", "(3) ...", "1) ...".
-    When no numbered structure is present, falls back to splitting on blank-line
-    paragraph breaks (collapsing trivially short fragments). Always returns at
-    least the whole response as a single step if nothing else matches, so the
-    step checker always has at least one step to look at.
-    """
-    if not response or not response.strip():
-        return []
-    lines = response.splitlines()
-
-    # First pass: collect explicitly numbered lines, folding subsequent
-    # un-numbered continuation lines into the current step body.
-    steps: list[str] = []
-    current_idx: int | None = None
-    current_buf: list[str] = []
-    for line in lines:
-        m = _STEP_RE.match(line)
-        if m:
-            # Flush previous step.
-            if current_idx is not None:
-                steps.append("\n".join(current_buf).strip())
-            current_idx = int(m.group(1))
-            current_buf = [f"{current_idx}. {m.group(2).strip()}"]
-        elif current_idx is not None:
-            current_buf.append(line.rstrip())
-    if current_idx is not None:
-        steps.append("\n".join(current_buf).strip())
-
-    # Drop empty fragments and return if we found real numbered structure.
-    steps = [s for s in steps if s.strip()]
-    if steps:
-        return steps
-
-    # Fallback: split on blank-line paragraph breaks.
-    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", response.strip()) if p.strip()]
-    if paragraphs:
-        return paragraphs
-
-    # Final fallback: the whole response is one step.
-    return [response.strip()] if response.strip() else []
-
-
-def generate_with_steps(prompt: str, session_id: str,
-                        max_new_tokens: int = 200, temperature: float = 0.7) -> dict:
-    """Generate + return both the raw response AND a list of parsed steps."""
-    resp = generate_response(prompt, session_id, max_new_tokens, temperature)
-    steps = _parse_cot_steps(resp)
-    return {"response": resp, "steps": steps}
-
-
-def self_judge(original_prompt: str, llm_response: str,
-               session_id: str = "unknown") -> str:
-    """The SAME model critiques its own output.
-
-    Asks the model: 'You previously answered X to question Y. Is your
-    answer correct? Check for unit errors, sign errors, or logical issues.'
-    Returns the model's self-assessment.
-    """
+def self_judge(original_prompt: str, llm_response: str, session_id: str = "unknown") -> str:
     judge_prompt = (
         f"You are checking your own work for errors.\n\n"
         f"Original question:\n{original_prompt}\n\n"
         f"Your answer was:\n{llm_response}\n\n"
         f"Now carefully check your answer for these specific errors:\n"
         f"1. Unit errors (e.g. using m/s^2 instead of m/s, or N instead of J)\n"
-        f"2. Sign errors (e.g. +2x instead of -2x)\n"
-        f"3. Whether the problem is actually solvable\n\n"
+        f"2. Sign errors (e.g. forgetting to flip inequality when dividing by negative)\n"
+        f"3. Arithmetic errors\n"
+        f"4. Whether the problem is actually solvable\n\n"
         f"Is your answer correct? If you find an error, state what the error is. "
         f"If the problem is unsolvable, say so.\n"
         f"Answer: CORRECT / ERROR (explain) / UNSOLVABLE (explain)"
     )
     t0 = time.time()
     call_id = len(_GLOBAL_LOG) + 1
-    resp = _raw_generate(judge_prompt, max_new_tokens=150, temperature=0.3)
+    resp = _api_call([{"role": "user", "content": judge_prompt}], max_tokens=200, temperature=0.2)
     elapsed = round(time.time() - t0, 2)
     ok = not resp.startswith("[")
     _log(call_id, session_id, "self_judge", judge_prompt, resp, elapsed, ok)
     return resp
+
+
+def generate_with_steps(prompt, session_id, max_new_tokens=400, temperature=0.7):
+    resp = generate_response(prompt, session_id, max_new_tokens, temperature)
+    steps = _parse_cot_steps(resp)
+    return {"response": resp, "steps": steps}
+
+
+def _parse_cot_steps(response: str) -> list[dict]:
+    if not response or not response.strip():
+        return []
+    import re
+    lines = response.strip().splitlines()
+    steps = []
+    current = []
+    step_num = 0
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if current:
+                step_num += 1
+                steps.append({"step_number": step_num, "raw_text": " ".join(current).strip()})
+                current = []
+            continue
+        m = re.match(r"^(?:Step\s+)?(\d+)[\.\)\:]\s*(.*)", stripped, re.I)
+        if m and current:
+            step_num += 1
+            steps.append({"step_number": step_num, "raw_text": " ".join(current).strip()})
+            current = [m.group(2)]
+        elif m:
+            current = [m.group(2)]
+        else:
+            current.append(stripped)
+    if current:
+        step_num += 1
+        steps.append({"step_number": step_num, "raw_text": " ".join(current).strip()})
+    return steps if steps else [{"step_number": 1, "raw_text": response.strip()[:200]}]
 
 
 def _log(call_id, session_id, call_type, prompt, response, elapsed, success):
@@ -178,7 +123,7 @@ def _log(call_id, session_id, call_type, prompt, response, elapsed, success):
         "time": time.strftime("%H:%M:%S"),
         "model": _MODEL_ID,
         "prompt": prompt[:120].replace("\n", " ") + ("..." if len(prompt) > 120 else ""),
-        "response": response[:400] + ("..." if len(response) > 400 else ""),
+        "response": response[:500] + ("..." if len(response) > 500 else ""),
         "respLen": len(response),
         "sec": elapsed,
         "ok": success,
@@ -197,15 +142,11 @@ def get_global_log(limit: int = 20) -> list[dict]:
 
 
 def model_status() -> dict:
-    model, _ = _load_model()
-    gen_calls = sum(1 for e in _GLOBAL_LOG if e.get("type") == "generate")
-    judge_calls = sum(1 for e in _GLOBAL_LOG if e.get("type") == "self_judge")
     return {
         "modelId": _MODEL_ID,
-        "loaded": model is not None,
-        "params": f"{sum(p.numel() for p in model.parameters()) // 1_000_000}M" if model else "N/A",
-        "backend": "local CPU (transformers)",
+        "backend": "HF Inference API (router.huggingface.co)",
+        "tokenPresent": bool(_TOKEN),
         "totalCalls": len(_GLOBAL_LOG),
-        "generateCalls": gen_calls,
-        "selfJudgeCalls": judge_calls,
+        "generateCalls": sum(1 for e in _GLOBAL_LOG if e.get("type") == "generate"),
+        "selfJudgeCalls": sum(1 for e in _GLOBAL_LOG if e.get("type") == "self_judge"),
     }
