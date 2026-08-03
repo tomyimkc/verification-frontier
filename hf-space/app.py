@@ -144,33 +144,76 @@ SHOWCASE = [
 ]
 
 
+def _strip_latex(text: str) -> str:
+    """Remove LaTeX markup to get plain text."""
+    text = text.replace("\\[", "").replace("\\]", "")
+    text = text.replace("\\boxed{", "").replace("\\(", "").replace("\\)", "")
+    text = text.replace("\\text{", " ").replace("\\,", " ")
+    text = text.replace("\\cdot", "*").replace("\\frac", "")
+    text = text.replace("\\times", "*").replace("\\div", "/")
+    text = text.replace("{", "").replace("}", "")
+    text = text.replace("\\\\", "\\")
+    return text
+
+
 def _extract(text: str) -> str:
     """Best-effort extract a final numeric/symbolic candidate from a response.
 
-    Looks (from the bottom up) for an explicit "answer: X" / "= X" line, then
-    for the last quantity with a known unit, then falls back to the last
-    non-empty line. Used to feed the deterministic verifier in Step 4. Leading
-    prose words around a matched quantity ("the answer is", "x =") are stripped
-    so the SI verifier receives a clean "9.8 m/s" rather than "is 9.8 m/s".
+    Strips LaTeX markup first (7B models output \\boxed{2.4 \\text{m/s}}),
+    then looks for number+unit or symbolic expressions.
     """
     if not text or not text.strip():
         return ""
-    lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
-    # A bare "<number> <unit>" anywhere in the last few lines is the most
-    # reliable signal for the physics/SI showcases.
-    for line in reversed(lines[-4:]):
+
+    # Strip LaTeX from the whole text first
+    cleaned = _strip_latex(text)
+
+    lines = [l.strip() for l in cleaned.strip().splitlines() if l.strip()]
+
+    # Look for explicit "answer = X" / "velocity = X" patterns
+    for line in reversed(lines[-5:]):
+        m = re.search(
+            r"(?:answer|result|velocity|energy|power|factor|EMF|volume)\s*[:=]\s*(.+)",
+            line, re.I,
+        )
+        if m:
+            val = m.group(1).strip().rstrip(".")
+            if val:
+                # Try to extract number+unit from this
+                m2 = re.search(
+                    r"([-+]?\d+\.?\d*(?:[eE][+-]?\d+)?)\s*"
+                    r"(m/s\^?2|m/s²|m/s|km/h|J|N|W|kg|Pa|s\b|m\b|V\b|T\b|Wb)",
+                    val,
+                )
+                if m2:
+                    unit = m2.group(2).replace("²", "^2")
+                    return f"{m2.group(1)} {unit}"
+                return val[:60]
+
+    # Look for bare number+unit in last few lines
+    for line in reversed(lines[-5:]):
         m = re.search(
             r"([-+]?\d+\.?\d*(?:[eE][+-]?\d+)?)\s*"
-            r"(m/s\^?2|m/s²|m/s|km/h|J|N|W|kg|Pa|s\b|m\b)",
+            r"(m/s\^?2|m/s²|m/s|km/h|J|N|W|kg|Pa|s\b|m\b|V\b|T\b|Wb)",
             line,
         )
         if m:
             unit = m.group(2).replace("²", "^2")
             return f"{m.group(1)} {unit}"
-    # Fall back to the last non-empty line, trimmed of common prefixes.
-    last = lines[-1] if lines else text.strip()
-    last = re.sub(r"^(?:the\s+)?(?:final\s+)?(?:answer|result|solution|therefore)[\s,:=]*",
-                  "", last, flags=re.I).strip().rstrip(".")
+
+    # Look for symbolic expression
+    for line in reversed(lines[-5:]):
+        clean = line.replace(" ", "").replace("²", "^2")
+        if re.search(r"[a-z]\^?2|[a-z]\*\*2", clean, re.I):
+            clean = re.sub(r"^(.*?[:=])", "", clean)
+            return clean[:40]
+
+    # Fallback: last non-empty line
+    last = lines[-1] if lines else cleaned.strip()
+    last = re.sub(
+        r"^(?:the\s+)?(?:final\s+)?(?:answer|result|solution|therefore)[\s,:=]*",
+        "", last, flags=re.I,
+    ).strip().rstrip(".")
     return last[:60] if last else ""
 
 
