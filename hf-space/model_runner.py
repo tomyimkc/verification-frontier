@@ -24,15 +24,14 @@ AVAILABLE_MODELS = [
 DEFAULT_MODELS = [
     "Qwen/Qwen2.5-7B-Instruct",
     "meta-llama/Llama-3.3-70B-Instruct",
-    "deepseek-ai/DeepSeek-V3",
 ]
 
 
-def _api_call(model: str, messages: list[dict], max_tokens: int = 1000, temperature: float = 0.7) -> str:
+def _api_call(model: str, messages: list[dict], max_tokens: int = 400, temperature: float = 0.7) -> str:
     try:
         resp = requests.post(_ROUTER_URL, headers={"Authorization": f"Bearer {_TOKEN}"},
             json={"model": model, "messages": messages, "max_tokens": max_tokens, "temperature": temperature},
-            timeout=60)
+            timeout=30)
         if resp.status_code == 200:
             return resp.json()["choices"][0]["message"]["content"].strip()
         return f"[API {resp.status_code}: {resp.text[:80]}]"
