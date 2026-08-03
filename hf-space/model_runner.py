@@ -14,7 +14,13 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-_MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
+_MODEL_ID = os.environ.get("VF_MODEL", "Qwen/Qwen2.5-7B-Instruct")
+_FALLBACK_MODELS = [
+    "Qwen/Qwen2.5-7B-Instruct",
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "meta-llama/Llama-3.3-70B-Instruct",
+    "deepseek-ai/DeepSeek-V3",
+]
 _ROUTER_URL = "https://router.huggingface.co/v1/chat/completions"
 _TOKEN = os.environ.get("HF_TOKEN", "")
 
@@ -23,25 +29,36 @@ _MAX_LOG = 100
 
 
 def _api_call(messages: list[dict], max_tokens: int = 1000, temperature: float = 0.7) -> str:
-    """Call the HF router API."""
-    try:
-        resp = requests.post(
-            _ROUTER_URL,
-            headers={"Authorization": f"Bearer {_TOKEN}"},
-            json={
-                "model": _MODEL_ID,
-                "messages": messages,
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-            },
-            timeout=60,
-        )
-        if resp.status_code == 200:
-            return resp.json()["choices"][0]["message"]["content"].strip()
-        else:
-            return f"[API error {resp.status_code}: {resp.text[:100]}]"
-    except Exception as e:
-        return f"[API error: {e}]"
+    """Call the HF router API with automatic fallback to alternative models."""
+    global _MODEL_ID
+    models_to_try = [_MODEL_ID] + [m for m in _FALLBACK_MODELS if m != _MODEL_ID]
+    for model in models_to_try:
+        try:
+            resp = requests.post(
+                _ROUTER_URL,
+                headers={"Authorization": f"Bearer {_TOKEN}"},
+                json={
+                    "model": model,
+                    "messages": messages,
+                    "max_tokens": max_tokens,
+                    "temperature": temperature,
+                },
+                timeout=60,
+            )
+            if resp.status_code == 200:
+                if model != _MODEL_ID:
+                    logger.info("Switched to fallback model: %s", model)
+                    _MODEL_ID = model
+                return resp.json()["choices"][0]["message"]["content"].strip()
+            elif resp.status_code == 400:
+                logger.info("Model %s unavailable, trying fallback...", model)
+                continue
+            else:
+                return f"[API error {resp.status_code}: {resp.text[:100]}]"
+        except Exception as e:
+            logger.warning("API call to %s failed: %s", model, e)
+            continue
+    return "[All models unavailable — please retry later]"
 
 
 def generate_response(prompt: str, session_id: str = "unknown",
