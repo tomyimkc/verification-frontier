@@ -487,9 +487,21 @@ def build_app():
                 > fail-closed. They are **not** model-capability, capability-uplift, or
                 > contest-performance claims.
 
+                > 🔑 **核心结果 / Central result — 实测可判定边界 (measured boundary).**
+                > 在**两个外部语料**上测量，全程无模型参与：
+                > 自然语言推理（PRM800K，24,254 条 OpenAI 人工标签）覆盖 **~0.1%**；
+                > 带单位的物理量（SciBench，409 道题）**83.4%** 可判定。
+                > **边界落在「是否为带量纲的量」这条线上。**
+                > Two external corpora, no model in the loop: **~0.1 %** reach on
+                > natural-language reasoning vs **83.4 %** on unit-bearing quantities.
+                > The boundary falls on the dimensional-quantity line.
+
                 | 指标 / Metric | 结果 / Result | 这个数字的限定 / What limits it |
                 |---|---|---|
-                | 逻辑错误捕获率 / Logic-error catch-rate | **67/67 (100%)** | 错误由我们植入，且属于验证器**设计要检测**的类别。这是仪器正确性，不是对未见模型错误的捕获率。<br>Errors planted by us in categories the verifiers were built to detect — instrument correctness, **not** a catch-rate on unseen model errors. |
+                | **外部：自然语言推理 / External: NL reasoning** | **~0.1%** (4/6,080) | PRM800K 人工标注，弃权 99.67%，误拒率仅 0.016%。稳健，但几乎没有召回。<br>External human labels; abstains 99.67%; false rejections 0.016%. Sound, almost no recall. |
+                | **外部：带单位的量 / External: unit-bearing** | **83.4%** (341/409) | SciBench 教科书答案；可判定率**等于**可表示率——凡能解析者判定全对。原始 LaTeX 仅 22.7%：**限制来自格式而非物理**。<br>Decidable **equals** representable. Raw LaTeX scores 22.7% — format, not physics, is the limit. |
+                | 构念效度梯度 / Construct-validity gradient | 100% → 73.4% → **~0.1%** | 我们自己植入 → 盲写留出 → 外部人工标签。此前的数字描述的是我们自己的出题方式。<br>Our own categories → blind-authored → external. The earlier numbers described our own test-writing. |
+                | 植入错误自检 / Planted self-test | 67/67 (100%) | 错误由我们植入，且属于验证器**设计要检测**的类别。这是仪器正确性，不是对未见模型错误的捕获率。<br>Errors planted by us in categories the verifiers were built to detect — instrument correctness, **not** a catch-rate on unseen model errors. |
                 | 病态问题弃权率 / Ill-posed abstention | **30/30 (100%)** | 同一检测器对 **10/10 良构对照**也弃权（误报率 1.0，审计 status=FAIL）。检测器能识别病态，**不能**确认良构。<br>The same detector also abstains on **10/10 well-posed controls** (false-alarm rate 1.0, audit status **FAIL**). It detects ill-posedness; it **cannot** confirm well-posedness. |
                 | LLM-judge vs 确定性 / vs deterministic | 40% vs 95%（并集 100%） | LLM-judge 是**模拟的**，不是真实评判模型的实测基线。<br>The LLM judge is **simulated** — an illustrative contrast, **not** a measured baseline against a real judge model. |
                 | 自我修正错误下降 / Self-correction | 83.6% | 仅**修正**模式：模型可修复被捕获的错误，但 `canSelfAccept:false` —— 永不自行确认。<br>Revision-only: the model may fix a **caught** error but `canSelfAccept:false` — it never confirms a step itself. |
