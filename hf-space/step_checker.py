@@ -172,9 +172,18 @@ def _safe_eval(expr_str: str, sp=None):
         except ImportError:
             return None
     try:
-        return sp.sympify(ast.unparse(tree.body), evaluate=True)
+        value = sp.sympify(ast.unparse(tree.body), evaluate=True)
     except Exception:
         return None
+    # sympify resolves several bare names to non-expression sympy singletons:
+    # Q -> AssumptionKeys, N -> function, S -> SingletonRegistry, O -> type,
+    # beta/gamma -> FunctionClass. Those are ordinary physics variable names
+    # (heat, newtons, entropy, Lorentz factor -- and this demo ships a Lorentz
+    # challenge), and they carry no .free_symbols, so letting them through
+    # raised AttributeError downstream. Fail closed instead.
+    if not isinstance(value, sp.Expr):
+        return None
+    return value
 
 
 def _looks_like_math(seg: str) -> bool:
@@ -287,23 +296,57 @@ def _segment_quantity(seg: str) -> tuple[float | None, tuple | None, str | None]
     return value, dim, unit_str
 
 
-def _numeric_equal(l_expr, r_expr) -> bool | None:
-    """True/False if both sympy exprs are pure numbers (no free symbols) and
-    we can decide equality within tolerance. None if either has free symbols or
-    cannot be floated (e.g. symbolic, or contained units and did not parse).
+def _written_precision_tolerance(text: str | None) -> float | None:
+    """Half a unit in the last decimal place the answer was WRITTEN to.
+
+    A model that writes ``1/0.6 = 1.667`` has rounded, not erred: the true value
+    1.66667 differs by 3.3e-4, which its own 3-decimal presentation cannot
+    express. Returns None when no numeric literal is present.
+    """
+    if not text:
+        return None
+    m = re.search(r"[-+]?\d*\.?\d+", text)
+    if not m:
+        return None
+    literal = m.group(0)
+    decimals = len(literal.split(".")[1]) if "." in literal else 0
+    return 0.5 * (10.0 ** -decimals)
+
+
+def _numeric_equal(l_expr, r_expr, rhs_text: str | None = None) -> bool | None:
+    """Three-state arithmetic balance: True / False / None (abstain).
+
+    A flat 1% relative tolerance was previously used here, which silently
+    ACCEPTED "500 * 4.18 * 60 = 125000" (true value 125400, error 400, well
+    inside 1% of a six-figure number). A silent pass is the one outcome this
+    project exists to prevent, so the comparison is now three-state:
+
+      * agrees to floating-point precision            -> True  (verified)
+      * differs by more than the written precision    -> False (error)
+      * differs only by what rounding could explain   -> None  (abstain)
+
+    The middle case is reported as unchecked rather than verified, because the
+    step checker cannot tell a rounded presentation from a small real error.
     """
     if l_expr is None or r_expr is None:
         return None
-    if l_expr.free_symbols or r_expr.free_symbols:
+    if getattr(l_expr, "free_symbols", None) or getattr(r_expr, "free_symbols", None):
         return None
     try:
         lv = float(l_expr)
         rv = float(r_expr)
     except (TypeError, ValueError):
         return None
-    if rv == 0:
-        return abs(lv) <= _RTOL
-    return abs(lv - rv) <= _RTOL * max(abs(rv), 1e-12)
+
+    scale = max(abs(lv), abs(rv), 1.0)
+    diff = abs(lv - rv)
+    if diff <= 1e-9 * scale:
+        return True
+
+    rounding = _written_precision_tolerance(rhs_text)
+    if rounding is not None and diff <= rounding:
+        return None  # explainable by the precision the answer was written to
+    return False
 
 
 def _check_pair(lhs: str, rhs: str, sp) -> dict:
@@ -324,7 +367,7 @@ def _check_pair(lhs: str, rhs: str, sp) -> dict:
     if sp is not None:
         l_expr = _safe_eval(lhs, sp)
         r_expr = _safe_eval(rhs, sp)
-        out["numeric"] = _numeric_equal(l_expr, r_expr)
+        out["numeric"] = _numeric_equal(l_expr, r_expr, rhs)
         if out["numeric"] is False:
             out["reason"] = "numeric mismatch (arithmetic does not balance)"
 
