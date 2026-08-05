@@ -488,13 +488,15 @@ def build_app():
                 > contest-performance claims.
 
                 > 🔑 **核心结果 / Central result — 实测可判定边界 (measured boundary).**
-                > 在**两个外部语料**上测量，全程无模型参与：
-                > 自然语言推理（PRM800K，24,254 条 OpenAI 人工标签）覆盖 **~0.1%**；
-                > 带单位的物理量（SciBench，409 道题）**83.4%** 可判定。
-                > **边界落在「是否为带量纲的量」这条线上。**
-                > Two external corpora, no model in the loop: **~0.1 %** reach on
-                > natural-language reasoning vs **83.4 %** on unit-bearing quantities.
-                > The boundary falls on the dimensional-quantity line.
+                > 在**三个外部语料**上测量，全程无模型参与：
+                > 自然语言推理（PRM800K，24,254 条 OpenAI 人工标签）**~0.1%**；
+                > OlympiadBench 物理（ACL 2024，对归一化器为**留出集**）**58.1%**；
+                > 带单位的物理量（SciBench，409 道题）**83.4%**。
+                > **覆盖率随材料的「带量纲比例」变化。**
+                > Three external corpora, no model in the loop: **~0.1 %** on
+                > natural-language reasoning, **58.1 %** on OlympiadBench physics
+                > (held out), **83.4 %** on unit-bearing quantities.
+                > Reach tracks the **dimensional fraction** of the material.
 
                 | 指标 / Metric | 结果 / Result | 这个数字的限定 / What limits it |
                 |---|---|---|
